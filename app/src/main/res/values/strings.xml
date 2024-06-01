@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">FitMe</string>
+
+    <!--    Confirmation-->
+    <string name="analyze">Analyze</string>
+    <string name="retake">Retake</string>
+
+    <!--    Process-->
+    <string name="great">You look great!</string>
+    <string name="wait">Wait a second...</string>
+    <string name="analyzing">We’re analyzing your face</string>
+
+    <!--    Result-->
+
+
 </resources>
