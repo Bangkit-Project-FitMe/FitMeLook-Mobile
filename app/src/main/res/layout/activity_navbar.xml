@@ -11,7 +11,7 @@
         android:id="@+id/tvTitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="48dp"
         android:text="User Test"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -36,7 +36,7 @@
         android:id="@+id/iconHome"
         android:layout_width="25dp"
         android:layout_height="25dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="40dp"
         android:contentDescription="@string/home"
         app:layout_constraintStart_toStartOf="@+id/tvTitle"
         app:layout_constraintTop_toBottomOf="@+id/view"
@@ -49,6 +49,7 @@
         android:layout_marginStart="44dp"
         android:text="Home"
         android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/iconHome"
         app:layout_constraintEnd_toEndOf="@+id/view"
         app:layout_constraintHorizontal_bias="0.0"
@@ -74,6 +75,7 @@
         android:layout_marginTop="40dp"
         android:text="Profile"
         android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/tvHistory"
         app:layout_constraintEnd_toEndOf="@+id/tvHome"
         app:layout_constraintHorizontal_bias="0.0"
@@ -98,6 +100,7 @@
         android:layout_height="wrap_content"
         android:text="History"
         android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/iconHistory"
         app:layout_constraintEnd_toEndOf="@+id/tvProfile"
         app:layout_constraintHorizontal_bias="0.0"
@@ -108,27 +111,28 @@
 
     <Button
         android:id="@+id/btnLogout"
-        android:layout_width="351dp"
+        android:layout_width="330dp"
         android:layout_height="53dp"
-        android:layout_marginTop="296dp"
+        android:layout_marginTop="480dp"
         android:backgroundTint="#FF5722"
         android:text="Log out"
         android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="@id/view"
-        app:layout_constraintHorizontal_bias="0.457"
+        app:layout_constraintHorizontal_bias="0.451"
         app:layout_constraintStart_toStartOf="@id/view"
         app:layout_constraintTop_toBottomOf="@+id/iconHome" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
         android:text="FitMe"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/btnLogout"
-        app:layout_constraintHorizontal_bias="0.039"
-        app:layout_constraintStart_toStartOf="@+id/btnLogout"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="573dp" />
+        app:layout_constraintEnd_toEndOf="@+id/view"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/view"
+        app:layout_constraintTop_toBottomOf="@+id/btnLogout"
+        tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
