@@ -1,21 +1,22 @@
-package com.example.fitme.signup
+package com.example.fitme.login
 
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
+import android.widget.Toast
 import android.view.WindowInsets
 import android.view.WindowManager
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.fitme.databinding.ActivitySignupBinding
-import com.example.fitme.home.MainActivity
+import com.example.fitme.databinding.ActivityLoginBinding
+import com.example.fitme.signup.SignUpActivity
 
-class SignUpActivity : AppCompatActivity() {
+class LoginActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivitySignupBinding
+    private lateinit var binding: ActivityLoginBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivitySignupBinding.inflate(layoutInflater)
+        binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         setupView()
@@ -23,12 +24,6 @@ class SignUpActivity : AppCompatActivity() {
         setupAction()
     }
 
-    private fun setupBinding() {
-        binding.signUpToLogin.setOnClickListener {
-            val intent = Intent(this@SignUpActivity, MainActivity::class.java)
-            startActivity(intent)
-        }
-    }
     private fun setupView() {
         @Suppress("DEPRECATION")
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
@@ -42,13 +37,20 @@ class SignUpActivity : AppCompatActivity() {
         supportActionBar?.hide()
     }
 
-    private fun setupAction() {
-        binding.signupButton.setOnClickListener {
-            Toast.makeText(this, "Sign Up", Toast.LENGTH_SHORT).show()
-        }
-
-        binding.googleSignupButton.setOnClickListener {
-            Toast.makeText(this, "Google Sign Up", Toast.LENGTH_SHORT).show()
+    private fun setupBinding() {
+        binding.loginToSignUp.setOnClickListener {
+            startActivity(Intent(this, SignUpActivity::class.java))
         }
     }
+
+    private fun setupAction() {
+        binding.loginButton.setOnClickListener {
+            Toast.makeText(this, "Login", Toast.LENGTH_SHORT).show()
+        }
+
+        binding.googleLoginButton.setOnClickListener {
+            Toast.makeText(this, "Login Google", Toast.LENGTH_SHORT).show()
+        }
+    }
+
 }

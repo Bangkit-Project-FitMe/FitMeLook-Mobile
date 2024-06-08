@@ -15,7 +15,10 @@
             android:name=".signup.SignUpActivity"
             android:exported="false" />
         <activity
-            android:name=".login.MainActivity"
+            android:name=".login.LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".home.MainActivity"
             android:exported="false" />
         <activity
             android:name=".SplashActivity"
