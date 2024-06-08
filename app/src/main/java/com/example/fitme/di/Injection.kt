@@ -4,7 +4,7 @@ import android.content.Context
 import com.example.fitme.api.ApiConfig
 import com.example.fitme.profile.pref.UserPreference
 import com.example.fitme.profile.pref.dataStore
-import com.example.fitme.repository.FitMeRepository
+import com.example.fitme.FitMeRepository
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
 

@@ -5,7 +5,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.fitme.di.Injection
 import com.example.fitme.home.MainViewModel
-import com.example.fitme.repository.FitMeRepository
 
 class ViewModelFactory(private val repository: FitMeRepository) : ViewModelProvider.NewInstanceFactory() {
 

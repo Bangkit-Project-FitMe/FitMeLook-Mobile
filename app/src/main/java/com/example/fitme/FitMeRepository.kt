@@ -1,4 +1,4 @@
-package com.example.fitme.repository
+package com.example.fitme
 
 import com.example.fitme.profile.pref.UserPreference
 import com.example.fitme.api.ApiService

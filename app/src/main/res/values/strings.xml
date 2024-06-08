@@ -18,6 +18,9 @@
     <string name="fullname">Fullname</string>
     <string name="signupToLogin">Already have an account? Login</string>
     <string name="signupGoogle">Sign up with Google</string>
+
+    <!--    Home-->
+    <string name="pageHome">Home</string>
   
     <!--    Confirmation-->
     <string name="analyze">Analyze</string>

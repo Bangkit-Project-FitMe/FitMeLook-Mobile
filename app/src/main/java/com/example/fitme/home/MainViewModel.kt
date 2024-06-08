@@ -5,7 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.fitme.profile.model.UserModel
-import com.example.fitme.repository.FitMeRepository
+import com.example.fitme.FitMeRepository
 import kotlinx.coroutines.launch
 
 class MainViewModel(private val repository: FitMeRepository) : ViewModel() {
