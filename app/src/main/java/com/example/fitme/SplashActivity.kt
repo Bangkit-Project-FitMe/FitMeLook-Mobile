@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.content.Intent
 import android.os.Handler
 import androidx.appcompat.app.AppCompatActivity
-import com.example.fitme.R
+import com.example.fitme.login.MainActivity
 
 class SplashActivity : AppCompatActivity() {
 

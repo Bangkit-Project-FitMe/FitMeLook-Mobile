@@ -1,3 +1,22 @@
 <resources>
     <string name="app_name">FitMe</string>
+
+    <!--    Login-->
+    <string name="login1">Log into</string>
+    <string name="login2">your account</string>
+    <string name="login">Login</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="or">OR</string>
+    <string name="loginGoogle">Login with Google</string>
+    <string name="loginToSignup">Don’t have an account? Sign Up</string>
+
+    <!--    Sign Up-->
+    <string name="signup1">Create</string>
+    <string name="signup2">your account</string>
+    <string name="signup">Sign up</string>
+    <string name="fullname">Fullname</string>
+    <string name="signupToLogin">Already have an account? Login</string>
+    <string name="signupGoogle">Sign up with Google</string>
+
 </resources>
