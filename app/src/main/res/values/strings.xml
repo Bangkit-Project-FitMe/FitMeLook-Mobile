@@ -18,5 +18,26 @@
     <string name="fullname">Fullname</string>
     <string name="signupToLogin">Already have an account? Login</string>
     <string name="signupGoogle">Sign up with Google</string>
+  
+    <!--    Confirmation-->
+    <string name="analyze">Analyze</string>
+    <string name="retake">Retake</string>
+
+    <!--    Process-->
+    <string name="great">You look great!</string>
+    <string name="wait">Wait a second...</string>
+    <string name="analyzing">We’re analyzing your face</string>
+
+    <!--    Result-->
+    <string name="greeting">Hello %1$s</string>
+    <string name="opening">Here’s your fashion recommendations</string>
+    <string name="about">About your skin tone</string>
+    <string name="desc">Summer cool and light skin tones exude an ethereal elegance reminiscent of moonlit nights and gentle ocean breezes. Pale porcelain hues with subtle undertones of pink or blue characterize this complexion, giving it a delicate and refined appearance. The Summer skin tone harmonizes beautifully with soft, cool shades like lavender, dusty rose, and icy blues, which complement its natural coolness without overpowering its inherent lightness. In the warmth of summer sunlight, this complexion radiates a serene and luminous glow, reminiscent of the gentle shimmer of moonlight on a tranquil evening.</string>
+    <string name="palette">Color Palette</string>
+    <string name="forYou">For You</string>
+    <string name="shape">Shape</string>
+    <string name="face">Oval</string>
+    <string name="season">Summer</string>
+    <string name="detail">Cool &amp; Light</string>
 
 </resources>
