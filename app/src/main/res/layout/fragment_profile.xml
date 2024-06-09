@@ -4,31 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.profile.ProfileActivity">
-
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
-        app:navigationIcon="@drawable/back"
-        app:layout_constraintTop_toTopOf="parent"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+    android:padding="16dp"
+    tools:context=".ui.profile.ProfileFragment">
 
     <TextView
         android:id="@+id/tvFullnameLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="92dp"
-        android:padding="16dp"
+        android:layout_marginTop="40dp"
         android:text="@string/fullname"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
+    <Button
         android:id="@+id/etFullname"
         android:layout_width="0dp"
         android:layout_height="60dp"
@@ -36,7 +27,6 @@
         android:layout_marginTop="4dp"
         android:layout_marginEnd="24dp"
         android:hint="@string/user_test"
-        android:inputType="text"
         android:padding="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -45,18 +35,17 @@
 
     <TextView
         android:id="@+id/tvEmailLabel"
-        android:padding="16dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:textSize="16sp"
-        android:layout_marginTop="16dp"
-        android:textStyle="bold"
+        android:layout_marginTop="32dp"
         android:text="@string/email"
-        app:layout_constraintTop_toBottomOf="@+id/etFullname"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etFullname" />
 
-    <EditText
+    <Button
         android:id="@+id/etEmail"
         android:padding="16dp"
         android:layout_width="0dp"
@@ -69,5 +58,4 @@
         app:layout_constraintTop_toBottomOf="@+id/tvEmailLabel"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

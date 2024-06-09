@@ -1,4 +1,5 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
+
     <style name="Base.Theme.FitMe" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="colorPrimary">@color/white</item>
         <item name="colorPrimaryDark">@color/black</item>
@@ -13,4 +14,13 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
+
+    <style name="Base.Theme.FitMe.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Base.Theme.FitMe.AppBarOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="Base.Theme.FitMe.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>
