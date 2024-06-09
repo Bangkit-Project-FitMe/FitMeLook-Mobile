@@ -20,4 +20,7 @@
     <string name="menu_history">History</string>
     <string name="go_to_navbaractivity">go to navbar\n</string>
     <string name="history">History</string>
+    <string name="date">Date</string>
+    <string name="today">Today</string>
+    <string name="see_all">see all</string>
 </resources>
