@@ -17,8 +17,6 @@ class HistoryFragment : Fragment() {
 
     private var _binding: FragmentHistoryBinding? = null
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -36,7 +34,6 @@ class HistoryFragment : Fragment() {
         val layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
         recyclerView.layoutManager = layoutManager
 
-        // Set your adapter here
         val imageList = listOf(0, 0, 0, 0, 0) // Dummy data
         recyclerView.adapter = HistoryImageAdapter(imageList)
 
