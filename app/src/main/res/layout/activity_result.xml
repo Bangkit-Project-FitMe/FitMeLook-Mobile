@@ -16,7 +16,7 @@
             android:layout_height="match_parent"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp">
-            
+
             <ImageView
                 android:id="@+id/imageView"
                 android:layout_width="100dp"
@@ -25,19 +25,19 @@
                 android:background="@drawable/circle_border"
                 android:scaleType="centerCrop"
                 android:src="@drawable/ic_launcher_foreground"
-                tools:ignore="MissingConstraints"
-                tools:layout_editor_absoluteX="239dp"
-                tools:layout_editor_absoluteY="3dp" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
                 android:id="@+id/imageIcon"
                 android:layout_width="54dp"
                 android:layout_height="52dp"
                 android:layout_gravity="center_horizontal|top"
+                android:layout_marginTop="56dp"
+                android:layout_marginEnd="52dp"
                 android:src="@drawable/summer"
-                tools:ignore="MissingConstraints"
-                tools:layout_editor_absoluteX="231dp"
-                tools:layout_editor_absoluteY="51dp" />
+                app:layout_constraintEnd_toEndOf="@id/imageView"
+                app:layout_constraintTop_toTopOf="@id/imageView" />
 
             <TextView
                 android:id="@+id/textGreeting"
