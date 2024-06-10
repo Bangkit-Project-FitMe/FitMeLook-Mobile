@@ -1,4 +1,4 @@
-package com.example.fitme.ui.profile
+package com.example.fitme.profile
 
 import android.os.Bundle
 import android.view.LayoutInflater

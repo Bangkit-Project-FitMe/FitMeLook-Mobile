@@ -1,8 +1,50 @@
 <resources>
-    <string name="app_name">FitMe</string>
-    <string name="fullname">Fullname</string>
-    <string name="user_test">user test</string>
+    <string name="app_name">FitMeLook</string>
+
+    <!--    Login-->
+    <string name="login1">Log into</string>
+    <string name="login2">your account</string>
+    <string name="login">Login</string>
     <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="or">OR</string>
+    <string name="loginGoogle">Login with Google</string>
+    <string name="loginToSignup">Don’t have an account? Sign Up</string>
+
+    <!--    Sign Up-->
+    <string name="signup1">Create</string>
+    <string name="signup2">your account</string>
+    <string name="signup">Sign up</string>
+    <string name="fullname">Fullname</string>
+    <string name="signupToLogin">Already have an account? Login</string>
+    <string name="signupGoogle">Sign up with Google</string>
+    <string name="your_web_client_id">171767667369-k52birluj6iujti33hquvps57rgoclce.apps.googleusercontent.com</string>
+
+    <!--    Home-->
+    <string name="pageHome">Home</string>
+  
+    <!--    Confirmation-->
+    <string name="analyze">Analyze</string>
+    <string name="retake">Retake</string>
+
+    <!--    Process-->
+    <string name="great">You look great!</string>
+    <string name="wait">Wait a second...</string>
+    <string name="analyzing">We’re analyzing your face</string>
+
+    <!--    Result-->
+    <string name="greeting">Hello %1$s</string>
+    <string name="opening">Here’s your fashion recommendations</string>
+    <string name="about">About your skin tone</string>
+    <string name="desc">Summer cool and light skin tones exude an ethereal elegance reminiscent of moonlit nights and gentle ocean breezes. Pale porcelain hues with subtle undertones of pink or blue characterize this complexion, giving it a delicate and refined appearance. The Summer skin tone harmonizes beautifully with soft, cool shades like lavender, dusty rose, and icy blues, which complement its natural coolness without overpowering its inherent lightness. In the warmth of summer sunlight, this complexion radiates a serene and luminous glow, reminiscent of the gentle shimmer of moonlight on a tranquil evening.</string>
+    <string name="palette">Color Palette</string>
+    <string name="forYou">For You</string>
+    <string name="shape">Shape</string>
+    <string name="face">Oval</string>
+    <string name="season">Summer</string>
+    <string name="detail">Cool &amp; Light</string>
+
+    <string name="user_test">user test</string>
     <string name="usertest_gmail_com">usertest@gmail.com</string>
     <string name="user_name">User Name</string>
     <string name="home">Home</string>
@@ -24,7 +66,6 @@
     <string name="today">Today</string>
     <string name="see_all">see all</string>
     <string name="title_activity_home">HomeActivity</string>
-    <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
@@ -69,4 +110,5 @@
     <string name="a_photo_of_you">A photo of you</string>
     <string name="please_make_sure_your_photo_clearly_shows_your_face">Please make sure your photo clearly shows your face</string>
     <string name="about_skintone">About Skintone</string>
+
 </resources>

@@ -1,4 +1,4 @@
-package com.example.fitme.ui.home
+package com.example.fitme.home
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

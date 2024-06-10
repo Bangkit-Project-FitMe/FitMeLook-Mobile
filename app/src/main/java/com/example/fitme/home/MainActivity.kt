@@ -1,8 +1,13 @@
-package com.example.fitme
+package com.example.fitme.home
 
+import android.content.DialogInterface
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
+import android.widget.Button
+import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.app.AlertDialog
 import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -13,12 +18,20 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
+import com.example.fitme.R
 import com.example.fitme.databinding.ActivityNavbarBinding
+import com.example.fitme.login.LoginActivity
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
-class NavbarActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityNavbarBinding
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,6 +41,8 @@ class NavbarActivity : AppCompatActivity() {
 
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
+
+        auth = Firebase.auth
 
         val drawerLayout: DrawerLayout = binding.drawerLayout
 
@@ -52,6 +67,7 @@ class NavbarActivity : AppCompatActivity() {
             ), drawerLayout
         )
 
+
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
@@ -59,7 +75,6 @@ class NavbarActivity : AppCompatActivity() {
             when (menuItem.itemId) {
                 R.id.iconHome -> {
                     navController.navigate(R.id.nav_home)
-//                    performHome()
                     true
                 }
                 R.id.iconProfile -> {
@@ -76,14 +91,43 @@ class NavbarActivity : AppCompatActivity() {
             }
         }
 
+        val btnLogout: Button = navView.findViewById(R.id.btnLogout)
+        btnLogout.setOnClickListener {
+            drawerLayout.closeDrawer(GravityCompat.START)
+            showLogoutConfirmationDialog()
+        }
+
     }
 
-//    private fun performHome() {
-//        lifecycleScope.launch {
-//            startActivity(Intent(this@NavbarActivity, HomeActivity::class.java))
-//            finish()
-//        }
-//    }
+    private fun showLogoutConfirmationDialog() {
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle("Logout")
+        builder.setMessage("Are you sure you want to logout?")
+        builder.setPositiveButton("Logout") { dialogInterface: DialogInterface, i: Int ->
+            signOut()
+        }
+        builder.setNegativeButton("Cancel") { dialogInterface: DialogInterface, i: Int -> }
+        val dialog = builder.create()
+        dialog.show()
+    }
+
+    private fun signOut() {
+        auth.signOut()
+        val googleSignInClient = GoogleSignIn.getClient(this, GoogleSignInOptions.Builder(
+            GoogleSignInOptions.DEFAULT_SIGN_IN).build())
+        googleSignInClient.signOut()
+        updateUI()
+    }
+
+    private fun updateUI() {
+        if (FirebaseAuth.getInstance().currentUser == null) {
+            Toast.makeText(this, "Logged out", Toast.LENGTH_SHORT).show()
+            startActivity(Intent(this@MainActivity, LoginActivity::class.java))
+            finish()
+        } else {
+            Toast.makeText(this, "Logout failed", Toast.LENGTH_SHORT).show()
+        }
+    }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.navbar, menu)

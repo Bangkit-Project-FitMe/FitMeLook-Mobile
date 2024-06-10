@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:padding="16dp"
     android:background="@color/white"
-    tools:context=".ui.profile.ProfileFragment">
+    tools:context=".profile.ProfileFragment">
 
     <TextView
         android:id="@+id/tvFullnameLabel"

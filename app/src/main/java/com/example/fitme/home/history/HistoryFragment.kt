@@ -1,23 +1,21 @@
-package com.example.fitme.ui.home
+package com.example.fitme.home.history
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.fitme.adapter.HistoryImageAdapter
-import com.example.fitme.databinding.FragmentHomeBinding
+import com.example.fitme.databinding.FragmentHistoryBinding
 
-class HomeFragment : Fragment() {
 
-    private var _binding: FragmentHomeBinding? = null
+class HistoryFragment : Fragment() {
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
+    private var _binding: FragmentHistoryBinding? = null
+
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -25,13 +23,13 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View {
-        val homeViewModel =
-            ViewModelProvider(this).get(HomeViewModel::class.java)
+        val historyViewModel =
+            ViewModelProvider(this).get(HistoryViewModel::class.java)
 
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        _binding = FragmentHistoryBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val recyclerView: RecyclerView = binding.rvHome
+        val recyclerView: RecyclerView = binding.recyclerView
         val layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
         recyclerView.layoutManager = layoutManager
 
@@ -46,3 +44,4 @@ class HomeFragment : Fragment() {
         _binding = null
     }
 }
+

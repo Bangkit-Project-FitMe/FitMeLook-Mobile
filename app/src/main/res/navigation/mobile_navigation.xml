@@ -7,19 +7,19 @@
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.example.fitme.ui.home.HomeFragment"
+        android:name="com.example.fitme.home.HomeFragment"
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/nav_profile"
-        android:name="com.example.fitme.ui.profile.ProfileFragment"
+        android:name="com.example.fitme.profile.ProfileFragment"
         android:label="@string/menu_profile"
         tools:layout="@layout/fragment_profile" />
 
     <fragment
         android:id="@+id/nav_history"
-        android:name="com.example.fitme.ui.history.HistoryFragment"
+        android:name="com.example.fitme.home.history.HistoryFragment"
         android:label="@string/menu_history"
         tools:layout="@layout/fragment_history" />
 </navigation>
