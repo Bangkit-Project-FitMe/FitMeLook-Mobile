@@ -1,6 +1,5 @@
 package com.example.fitme.ui.history
 
-import android.R
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -34,7 +33,7 @@ class HistoryFragment : Fragment() {
         val layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
         recyclerView.layoutManager = layoutManager
 
-        val imageList = listOf(0, 0, 0, 0, 0) // Dummy data
+        val imageList = listOf(0, 0, 0, 0, 0)
         recyclerView.adapter = HistoryImageAdapter(imageList)
 
         return root

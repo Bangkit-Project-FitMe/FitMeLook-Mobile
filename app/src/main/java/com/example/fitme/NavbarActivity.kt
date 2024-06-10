@@ -31,6 +31,7 @@ class NavbarActivity : AppCompatActivity() {
 
         val drawerLayout: DrawerLayout = binding.drawerLayout
 
+
         val toggle = ActionBarDrawerToggle(
             this, drawerLayout, toolbar,
             R.string.navigation_drawer_open,
@@ -50,6 +51,7 @@ class NavbarActivity : AppCompatActivity() {
                 R.id.nav_home, R.id.nav_profile, R.id.nav_history
             ), drawerLayout
         )
+
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
@@ -57,6 +59,7 @@ class NavbarActivity : AppCompatActivity() {
             when (menuItem.itemId) {
                 R.id.iconHome -> {
                     navController.navigate(R.id.nav_home)
+//                    performHome()
                     true
                 }
                 R.id.iconProfile -> {
@@ -74,6 +77,13 @@ class NavbarActivity : AppCompatActivity() {
         }
 
     }
+
+//    private fun performHome() {
+//        lifecycleScope.launch {
+//            startActivity(Intent(this@NavbarActivity, HomeActivity::class.java))
+//            finish()
+//        }
+//    }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.navbar, menu)

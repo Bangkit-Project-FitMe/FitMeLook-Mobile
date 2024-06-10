@@ -9,7 +9,11 @@
         android:supportsRtl="true"
         android:theme="@style/Base.Theme.FitMe"
         tools:targetApi="31">
-
+<!--        <activity-->
+<!--            android:name=".ui.home.HomeActivity"-->
+<!--            android:exported="false"-->
+<!--            android:label="@string/title_activity_home"-->
+<!--            android:theme="@style/Base.Theme.FitMe" />-->
         <activity
             android:name=".NavbarActivity"
             android:exported="true"
@@ -17,10 +21,10 @@
             android:theme="@style/Theme.FitMe.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".MainActivity"
             android:exported="true"

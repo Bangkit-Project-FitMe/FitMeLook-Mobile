@@ -9,13 +9,13 @@
 
     <Button
         android:id="@+id/btnLogout"
-        android:layout_width="210dp"
-        android:layout_height="45dp"
+        android:layout_width="279dp"
+        android:layout_height="57dp"
         android:layout_marginBottom="88dp"
         android:backgroundTint="#FF5722"
         android:text="Log out"
         android:textColor="#FFFFFF"
-        android:textSize="12sp"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
