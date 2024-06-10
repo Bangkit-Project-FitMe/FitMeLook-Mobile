@@ -9,9 +9,9 @@ import android.view.WindowManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.fitme.databinding.ActivitySignupBinding
-import com.example.fitme.home.MainActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.example.fitme.R
+import com.example.fitme.home.MainActivity
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException

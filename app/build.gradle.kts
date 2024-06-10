@@ -61,11 +61,8 @@ dependencies {
     implementation(platform("com.google.firebase:firebase-bom:33.1.0"))
     implementation("com.firebaseui:firebase-ui-auth:8.0.2")
 
-//    implementation("com.google.android.gms:play-services-auth")
-//    implementation("androidx.credentials:credentials:1.2.2")
-//    implementation("androidx.credentials:credentials-play-services-auth:1.2.2")
-//    implementation("com.google.android.gms:play-services-identity")
-//    implementation("com.google.android.libraries.identity.googleid:googleid:1.1.0")
+    implementation("androidx.navigation:navigation-fragment-ktx:2.7.7")
+    implementation("androidx.navigation:navigation-ui-ktx:2.7.7")
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
