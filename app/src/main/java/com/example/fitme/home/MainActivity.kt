@@ -2,14 +2,22 @@ package com.example.fitme.home
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.example.fitme.login.LoginActivity
 import com.example.fitme.databinding.ActivityMainBinding
 import com.example.fitme.ViewModelFactory
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var auth: FirebaseAuth
 
     private val viewModel by viewModels<MainViewModel> {
         ViewModelFactory.getInstance(this)
@@ -21,7 +29,21 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        checkLogin()
+        auth = Firebase.auth
+
+        binding.btnMap.setOnClickListener {
+            signOut()
+        }
+
+    }
+
+    override fun onStart() {
+        super.onStart()
+        val currentUser = FirebaseAuth.getInstance().currentUser
+        if (currentUser == null) {
+            startActivity(Intent(this, LoginActivity::class.java))
+            finish()
+        }
     }
 
     private fun checkLogin() {
@@ -34,6 +56,22 @@ class MainActivity : AppCompatActivity() {
             }else{
                 Toast.makeText(this, "Already Login!", Toast.LENGTH_SHORT).show()
             }
+        }
+    }
+
+    private fun signOut() {
+        auth.signOut()
+        val googleSignInClient = GoogleSignIn.getClient(this, GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).build())
+        googleSignInClient.signOut().addOnCompleteListener {
+            Toast.makeText(this, "Logged out", Toast.LENGTH_SHORT).show()
+            updateUI()
+        }
+    }
+
+    private fun updateUI() {
+        if (FirebaseAuth.getInstance().currentUser == null) {
+            startActivity(Intent(this@MainActivity,LoginActivity::class.java))
+            finish()
         }
     }
 

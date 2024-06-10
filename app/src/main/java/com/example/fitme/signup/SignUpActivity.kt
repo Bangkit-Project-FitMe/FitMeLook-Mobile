@@ -59,11 +59,14 @@ class SignUpActivity : AppCompatActivity() {
 
     private fun setupAction() {
         binding.signupButton.setOnClickListener {
-            Toast.makeText(this, "Sign Up", Toast.LENGTH_SHORT).show()
+            binding.signupButton.setOnClickListener {
+                Firebase.auth.signOut()
+                Toast.makeText(this, "Logout", Toast.LENGTH_SHORT).show()
+                updateUI()
+            }
         }
 
         binding.googleSignupButton.setOnClickListener {
-            // Toast.makeText(this, "Google Sign Up", Toast.LENGTH_SHORT).show()
             signIn()
         }
     }
@@ -100,6 +103,7 @@ class SignUpActivity : AppCompatActivity() {
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     Log.d(TAG, "signInWithCredential:success")
+                    Toast.makeText(this, FirebaseAuth.getInstance().currentUser?.displayName + " " + FirebaseAuth.getInstance().currentUser?.displayName, Toast.LENGTH_SHORT).show()
                     updateUI()
                 } else {
                     Log.w(TAG, "signInWithCredential:failure", task.exception)
