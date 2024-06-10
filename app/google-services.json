@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "171767667369",
+    "project_id": "fitmelook-project",
+    "storage_bucket": "fitmelook-project.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:171767667369:android:e2d44da7dd59015955e7b8",
+        "android_client_info": {
+          "package_name": "com.example.fitme"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "171767667369-qodgnp3ghrg8lh4hcun27qhu49qit8ff.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.fitme",
+            "certificate_hash": "b9aa7f6d35e350421a8d19dab41656b593573293"
+          }
+        },
+        {
+          "client_id": "171767667369-k52birluj6iujti33hquvps57rgoclce.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD59NWdrEyR2yiuNaFIHObf4ScyiqgsJ78"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "171767667369-k52birluj6iujti33hquvps57rgoclce.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

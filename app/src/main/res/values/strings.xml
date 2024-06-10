@@ -18,6 +18,7 @@
     <string name="fullname">Fullname</string>
     <string name="signupToLogin">Already have an account? Login</string>
     <string name="signupGoogle">Sign up with Google</string>
+    <string name="your_web_client_id">171767667369-k52birluj6iujti33hquvps57rgoclce.apps.googleusercontent.com</string>
 
     <!--    Home-->
     <string name="pageHome">Home</string>

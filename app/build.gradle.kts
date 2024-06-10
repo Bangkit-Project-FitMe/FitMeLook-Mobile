@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -55,6 +56,16 @@ dependencies {
     implementation("com.squareup.okhttp3:logging-interceptor:4.11.0")
     implementation("androidx.exifinterface:exifinterface:1.3.6")
     implementation("androidx.activity:activity-ktx:1.7.2")
+
+    implementation("com.google.firebase:firebase-auth")
+    implementation(platform("com.google.firebase:firebase-bom:33.1.0"))
+    implementation("com.firebaseui:firebase-ui-auth:8.0.2")
+
+//    implementation("com.google.android.gms:play-services-auth")
+//    implementation("androidx.credentials:credentials:1.2.2")
+//    implementation("androidx.credentials:credentials-play-services-auth:1.2.2")
+//    implementation("com.google.android.gms:play-services-identity")
+//    implementation("com.google.android.libraries.identity.googleid:googleid:1.1.0")
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
