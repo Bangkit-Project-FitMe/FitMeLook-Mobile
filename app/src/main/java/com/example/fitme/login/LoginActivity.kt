@@ -65,8 +65,30 @@ class LoginActivity : AppCompatActivity() {
         binding.googleLoginButton.setOnClickListener {
             loginGoogle()
         }
+
+        binding.forgotPassword.setOnClickListener {
+            resetPassword()
+        }
     }
 
+    private fun resetPassword() {
+        val email = binding.emailInput.text.toString().trim()
+
+        if (email.isEmpty()) {
+            Toast.makeText(this, "Please enter your email address", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        auth.sendPasswordResetEmail(email)
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    Toast.makeText(this, "Password reset email sent", Toast.LENGTH_SHORT).show()
+                } else {
+                    Log.w(TAG, "sendPasswordResetEmail:failure", task.exception)
+                    Toast.makeText(this, "Failed to send reset email", Toast.LENGTH_SHORT).show()
+                }
+            }
+    }
     private fun login() {
         val email = binding.emailInput.text.toString().trim()
         val password = binding.passwordInput.text.toString().trim()
