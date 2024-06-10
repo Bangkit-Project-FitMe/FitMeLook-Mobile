@@ -59,17 +59,35 @@ class LoginActivity : AppCompatActivity() {
 
     private fun setupAction() {
         binding.loginButton.setOnClickListener {
-            Firebase.auth.signOut()
-            Toast.makeText(this, "Logout", Toast.LENGTH_SHORT).show()
-            updateUI()
+            login()
         }
 
         binding.googleLoginButton.setOnClickListener {
-            logIn()
+            loginGoogle()
         }
     }
 
-    private fun logIn() {
+    private fun login() {
+        val email = binding.emailInput.text.toString().trim()
+        val password = binding.passwordInput.text.toString().trim()
+
+        if (email.isEmpty() || password.isEmpty()) {
+            Toast.makeText(this, "Email and Password cannot be empty", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        auth.signInWithEmailAndPassword(email, password)
+            .addOnCompleteListener(this) { task ->
+                if (task.isSuccessful) {
+                    Toast.makeText(this, "Login successful", Toast.LENGTH_SHORT).show()
+                    updateUI()
+                } else {
+                    Toast.makeText(this, "${task.exception?.message}", Toast.LENGTH_SHORT).show()
+                }
+            }
+    }
+
+    private fun loginGoogle() {
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(getString(R.string.your_web_client_id))
             .requestEmail()
@@ -101,7 +119,6 @@ class LoginActivity : AppCompatActivity() {
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     Log.d(TAG, "signInWithCredential:success")
-                    Toast.makeText(this, FirebaseAuth.getInstance().currentUser?.email + " " + FirebaseAuth.getInstance().currentUser?.displayName, Toast.LENGTH_SHORT).show()
                     updateUI()
                 } else {
                     Log.w(TAG, "signInWithCredential:failure", task.exception)

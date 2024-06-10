@@ -1,10 +1,11 @@
 package com.example.fitme.home
 
+import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.example.fitme.login.LoginActivity
 import com.example.fitme.databinding.ActivityMainBinding
@@ -32,7 +33,7 @@ class MainActivity : AppCompatActivity() {
         auth = Firebase.auth
 
         binding.btnMap.setOnClickListener {
-            signOut()
+            showLogoutConfirmationDialog()
         }
 
     }
@@ -57,6 +58,18 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(this, "Already Login!", Toast.LENGTH_SHORT).show()
             }
         }
+    }
+
+    private fun showLogoutConfirmationDialog() {
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle("Logout")
+        builder.setMessage("Are you sure you want to logout?")
+        builder.setPositiveButton("Logout") { dialogInterface: DialogInterface, i: Int ->
+            signOut()
+        }
+        builder.setNegativeButton("Cancel") { dialogInterface: DialogInterface, i: Int -> }
+        val dialog = builder.create()
+        dialog.show()
     }
 
     private fun signOut() {
