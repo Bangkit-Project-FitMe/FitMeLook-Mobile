@@ -10,6 +10,7 @@
     <string name="or">OR</string>
     <string name="loginGoogle">Login with Google</string>
     <string name="loginToSignup">Don’t have an account? Sign Up</string>
+    <string name="forgotPw">Forgot Password</string>
 
     <!--    Sign Up-->
     <string name="signup1">Create</string>
