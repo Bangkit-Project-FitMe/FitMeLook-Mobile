@@ -20,9 +20,6 @@
     <string name="signupToLogin">Already have an account? Login</string>
     <string name="signupGoogle">Sign up with Google</string>
     <string name="your_web_client_id">171767667369-k52birluj6iujti33hquvps57rgoclce.apps.googleusercontent.com</string>
-
-    <!--    Home-->
-    <string name="pageHome">Home</string>
   
     <!--    Confirmation-->
     <string name="analyze">Analyze</string>
@@ -45,6 +42,7 @@
     <string name="season">Summer</string>
     <string name="detail">Cool &amp; Light</string>
 
+    <!--    Home-->
     <string name="user_test">user test</string>
     <string name="usertest_gmail_com">usertest@gmail.com</string>
     <string name="user_name">User Name</string>
@@ -57,7 +55,6 @@
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
-
     <string name="menu_home">Home</string>
     <string name="menu_profile">Profile</string>
     <string name="menu_history">History</string>
@@ -71,6 +68,9 @@
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
+    <string name="a_photo_of_you">A photo of you</string>
+    <string name="please_make_sure_your_photo_clearly_shows_your_face">Please make sure your photo clearly shows your face</string>
+    <string name="about_skintone">About Skintone</string>
 
     <string name="lorem_ipsum">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris
@@ -108,8 +108,5 @@
         libero vel nunc consequat, quis tincidunt nisl eleifend. Cras bibendum enim a justo luctus
         vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
     </string>
-    <string name="a_photo_of_you">A photo of you</string>
-    <string name="please_make_sure_your_photo_clearly_shows_your_face">Please make sure your photo clearly shows your face</string>
-    <string name="about_skintone">About Skintone</string>
 
 </resources>

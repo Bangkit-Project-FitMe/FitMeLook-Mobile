@@ -39,14 +39,12 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityNavbarBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        auth = Firebase.auth
+
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
 
-        auth = Firebase.auth
-
         val drawerLayout: DrawerLayout = binding.drawerLayout
-
-
         val toggle = ActionBarDrawerToggle(
             this, drawerLayout, toolbar,
             R.string.navigation_drawer_open,
@@ -66,7 +64,6 @@ class MainActivity : AppCompatActivity() {
                 R.id.nav_home, R.id.nav_profile, R.id.nav_history
             ), drawerLayout
         )
-
 
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
@@ -112,10 +109,10 @@ class MainActivity : AppCompatActivity() {
         val builder = AlertDialog.Builder(this)
         builder.setTitle("Logout")
         builder.setMessage("Are you sure you want to logout?")
-        builder.setPositiveButton("Logout") { dialogInterface: DialogInterface, i: Int ->
+        builder.setPositiveButton("Logout") { _: DialogInterface, _: Int ->
             signOut()
         }
-        builder.setNegativeButton("Cancel") { dialogInterface: DialogInterface, i: Int -> }
+        builder.setNegativeButton("Cancel") { _: DialogInterface, _: Int -> }
         val dialog = builder.create()
         dialog.show()
     }
@@ -147,5 +144,5 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment_content_navbar)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
-    
+
 }
