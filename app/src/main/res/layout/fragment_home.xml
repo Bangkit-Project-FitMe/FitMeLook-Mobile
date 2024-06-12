@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".home.HomeFragment">
+
+    <ImageView
+        android:id="@+id/imgHome"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="40dp"
+        android:src="@drawable/user1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvHome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/a_photo_of_you"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/imgHome"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="@+id/imgHome"
+        app:layout_constraintTop_toBottomOf="@+id/imgHome" />
+
+    <TextView
+        android:id="@+id/tvDesc"
+        android:layout_width="306dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:text="@string/please_make_sure_your_photo_clearly_shows_your_face"
+        android:textColor="#808080"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/tvHome"
+        app:layout_constraintStart_toStartOf="@+id/tvHome"
+        app:layout_constraintTop_toBottomOf="@+id/tvHome" />
+
+    <TextView
+        android:id="@+id/tvAbout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:gravity="center"
+        android:padding="16dp"
+        android:text="@string/about_skintone"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/tvDesc"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/tvDesc"
+        app:layout_constraintTop_toBottomOf="@+id/btnGallery" />
+
+    <ImageView
+        android:id="@+id/imgArrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="132dp"
+        android:src="@drawable/rightarrow"
+        app:layout_constraintBottom_toBottomOf="@+id/tvAbout"
+        app:layout_constraintEnd_toEndOf="@+id/tvDesc"
+        app:layout_constraintStart_toEndOf="@+id/tvAbout"
+        app:layout_constraintTop_toTopOf="@+id/tvAbout" />
+
+    <Button
+        android:id="@+id/btnTakePhoto"
+        android:layout_width="279dp"
+        android:layout_height="57dp"
+        android:layout_marginBottom="416dp"
+        android:backgroundTint="#FF5722"
+        android:text="Take a photo"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/tvDesc"
+        app:layout_constraintHorizontal_bias="0.518"
+        app:layout_constraintStart_toStartOf="@+id/tvDesc"
+        app:layout_constraintTop_toBottomOf="@+id/tvDesc"
+        app:layout_constraintVertical_bias="0.216" />
+
+    <Button
+        android:id="@+id/btnGallery"
+        android:layout_width="279dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="#FF5722"
+        android:text="Choose from gallery"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/btnTakePhoto"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/btnTakePhoto"
+        app:layout_constraintTop_toBottomOf="@+id/btnTakePhoto" />
+
+    <ImageView
+        android:id="@+id/imgLine"
+        android:layout_width="344dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="100dp"
+        android:backgroundTint="@color/black"
+        android:src="@drawable/line"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.485"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnGallery" />
+
+    <TextView
+        android:id="@+id/tvHistoryHome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:text="@string/history"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/rvHome"
+        app:layout_constraintStart_toStartOf="@+id/tvAbout" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvHome"
+        android:layout_width="380dp"
+        android:layout_height="285dp"
+        android:layout_marginTop="68dp"
+        android:orientation="horizontal"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        app:layout_constraintStart_toStartOf="@+id/imgLine"
+        app:layout_constraintTop_toBottomOf="@+id/imgLine"
+        tools:listitem="@layout/history_image" />
+
+    <TextView
+        android:id="@+id/tvSeeAllHome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/see_all"
+        app:layout_constraintEnd_toEndOf="@+id/imgArrow"
+        app:layout_constraintHorizontal_bias="0.992"
+        app:layout_constraintStart_toEndOf="@+id/tvHistoryHome"
+        app:layout_constraintTop_toTopOf="@+id/tvHistoryHome" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,12 +8,11 @@ import android.widget.Toast
 import android.view.WindowInsets
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
+import com.example.fitme.home.MainActivity
 import com.example.fitme.R
 import com.example.fitme.databinding.ActivityLoginBinding
-import com.example.fitme.home.MainActivity
 import com.example.fitme.signup.SignUpActivity
 import com.google.android.gms.auth.api.signin.GoogleSignIn
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FirebaseAuth
@@ -150,7 +149,8 @@ class LoginActivity : AppCompatActivity() {
 
     private fun updateUI() {
         if (FirebaseAuth.getInstance().currentUser != null) {
-            startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
             finish()
         }
     }
