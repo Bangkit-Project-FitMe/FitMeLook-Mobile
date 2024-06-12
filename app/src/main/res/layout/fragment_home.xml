@@ -47,31 +47,44 @@
         app:layout_constraintStart_toStartOf="@+id/tvHome"
         app:layout_constraintTop_toBottomOf="@+id/tvHome" />
 
-    <TextView
-        android:id="@+id/tvAbout"
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
-        android:gravity="center"
-        android:padding="16dp"
-        android:text="@string/about_skintone"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="@+id/tvDesc"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/tvDesc"
-        app:layout_constraintTop_toBottomOf="@+id/btnGallery" />
+        android:layout_marginTop="52dp"
+        app:layout_constraintEnd_toEndOf="@+id/imgLine"
+        app:layout_constraintHorizontal_bias="0.485"
+        app:layout_constraintStart_toStartOf="@+id/imgLine"
+        app:layout_constraintTop_toBottomOf="@+id/btnGallery"
+        tools:ignore="MissingConstraints">
 
-    <ImageView
-        android:id="@+id/imgArrow"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="132dp"
-        android:src="@drawable/rightarrow"
-        app:layout_constraintBottom_toBottomOf="@+id/tvAbout"
-        app:layout_constraintEnd_toEndOf="@+id/tvDesc"
-        app:layout_constraintStart_toEndOf="@+id/tvAbout"
-        app:layout_constraintTop_toTopOf="@+id/tvAbout" />
+        <Button
+            android:id="@+id/btnAboutSkintones"
+            android:layout_width="373dp"
+            android:layout_height="52dp"
+            android:background="?attr/selectableItemBackground"
+            android:gravity="left"
+            android:text="@string/about_skintone"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="RtlHardcoded"
+            tools:layout_editor_absoluteX="5dp" />
+
+        <ImageView
+            android:id="@+id/imgArrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="28dp"
+            android:src="@drawable/rightarrow"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <Button
         android:id="@+id/btnTakePhoto"
@@ -119,21 +132,25 @@
         android:id="@+id/tvHistoryHome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="16dp"
         android:text="@string/history"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/rvHome"
-        app:layout_constraintStart_toStartOf="@+id/tvAbout" />
+        app:layout_constraintStart_toStartOf="@+id/imgLine"
+        app:layout_constraintTop_toBottomOf="@+id/imgLine"
+        app:layout_constraintVertical_bias="0.935" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvHome"
-        android:layout_width="380dp"
-        android:layout_height="285dp"
+        android:layout_width="361dp"
+        android:layout_height="263dp"
         android:layout_marginTop="68dp"
         android:orientation="horizontal"
         android:paddingStart="16dp"
         android:paddingEnd="16dp"
+        app:layout_constraintEnd_toEndOf="@+id/imgLine"
         app:layout_constraintStart_toStartOf="@+id/imgLine"
         app:layout_constraintTop_toBottomOf="@+id/imgLine"
         tools:listitem="@layout/history_image" />
@@ -142,11 +159,16 @@
         android:id="@+id/tvSeeAllHome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="271dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="16dp"
         android:text="@string/see_all"
-        app:layout_constraintEnd_toEndOf="@+id/imgArrow"
-        app:layout_constraintHorizontal_bias="0.992"
+        app:layout_constraintBottom_toTopOf="@+id/rvHome"
+        app:layout_constraintEnd_toEndOf="@+id/constraintLayout"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/tvHistoryHome"
-        app:layout_constraintTop_toTopOf="@+id/tvHistoryHome" />
+        app:layout_constraintTop_toBottomOf="@+id/imgLine"
+        app:layout_constraintVertical_bias="0.181" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -19,6 +19,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.fitme.adapter.HistoryImageAdapter
 import com.example.fitme.databinding.FragmentHomeBinding
+import com.example.fitme.home.about.AboutActivity
 import com.example.fitme.prediction.ConfirmationActivity
 
 class HomeFragment : Fragment() {
@@ -47,7 +48,7 @@ class HomeFragment : Fragment() {
 
         binding.btnTakePhoto.setOnClickListener {
             if (!allPermissionsGranted()) {
-                requestPermissionLauncher.launch(HomeFragment.REQUIRED_PERMISSION)
+                requestPermissionLauncher.launch(REQUIRED_PERMISSION)
             } else {
                 startCamera()
             }
@@ -55,10 +56,15 @@ class HomeFragment : Fragment() {
 
         binding.btnGallery.setOnClickListener {
             if (!allPermissionsGranted()) {
-                requestPermissionLauncher.launch(HomeFragment.REQUIRED_PERMISSION)
+                requestPermissionLauncher.launch(REQUIRED_PERMISSION)
             } else {
                 startGallery()
             }
+        }
+
+        binding.btnAboutSkintones.setOnClickListener {
+            val intent = Intent(requireContext(), AboutActivity::class.java)
+            startActivity(intent)
         }
 
         return root
@@ -78,7 +84,7 @@ class HomeFragment : Fragment() {
     private fun allPermissionsGranted() =
         ContextCompat.checkSelfPermission(
             requireContext(),
-            HomeFragment.REQUIRED_PERMISSION
+            REQUIRED_PERMISSION
         ) == PackageManager.PERMISSION_GRANTED
 
     private val launcherIntentCamera = registerForActivityResult(
