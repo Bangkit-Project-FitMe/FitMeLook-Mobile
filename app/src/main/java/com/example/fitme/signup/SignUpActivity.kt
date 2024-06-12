@@ -4,14 +4,19 @@ import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.view.WindowInsets
 import android.view.WindowManager
 import android.widget.Toast
+import androidx.activity.viewModels
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.example.fitme.databinding.ActivitySignupBinding
-import com.example.fitme.home.MainActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.example.fitme.R
+import com.example.fitme.ViewModelFactory
+import com.example.fitme.api.ResultState
+import com.example.fitme.login.LoginActivity
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
@@ -23,7 +28,9 @@ class SignUpActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivitySignupBinding
     private lateinit var auth: FirebaseAuth
-
+    private val viewModel by viewModels<SignUpViewModel> {
+        ViewModelFactory.getInstance(this)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,7 +46,7 @@ class SignUpActivity : AppCompatActivity() {
 
     private fun setupBinding() {
         binding.signUpToLogin.setOnClickListener {
-            val intent = Intent(this@SignUpActivity, MainActivity::class.java)
+            val intent = Intent(this@SignUpActivity, LoginActivity::class.java)
             startActivity(intent)
         }
     }
@@ -80,12 +87,38 @@ class SignUpActivity : AppCompatActivity() {
         auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-                    Toast.makeText(this, "Sign up successful", Toast.LENGTH_SHORT).show()
-                    updateUI()
+                    handleRegister()
                 } else {
                     Toast.makeText(this, "${task.exception?.message}", Toast.LENGTH_SHORT).show()
                 }
             }
+    }
+
+    private fun handleRegister() {
+        binding.signupButton.setOnClickListener {
+            val userID = FirebaseAuth.getInstance().currentUser?.uid ?: ""
+            val email = FirebaseAuth.getInstance().currentUser?.email ?: ""
+            val fullName = binding.nameInput.text.toString().trim()
+
+                viewModel.signUp(userID,email,fullName).observe(this){ result ->
+                when (result) {
+                    is ResultState.Success -> {
+                        // binding.progressBar.visibility = View.INVISIBLE
+                        Toast.makeText(this, "Sign up successful", Toast.LENGTH_SHORT).show()
+                        updateUI()
+                    }
+
+                    is ResultState.Loading -> {
+                        // binding.progressBar.visibility = View.VISIBLE
+                    }
+
+                    is ResultState.Error -> {
+                        // binding.progressBar.visibility = View.INVISIBLE
+                        Toast.makeText(this, result.error, Toast.LENGTH_SHORT).show()
+                    }
+                }
+            }
+        }
     }
 
     private fun signUpGoogle() {
@@ -129,7 +162,7 @@ class SignUpActivity : AppCompatActivity() {
 
     private fun updateUI() {
         if (FirebaseAuth.getInstance().currentUser != null) {
-            startActivity(Intent(this@SignUpActivity, MainActivity::class.java))
+            startActivity(Intent(this@SignUpActivity, LoginActivity::class.java))
             finish()
         }
     }
