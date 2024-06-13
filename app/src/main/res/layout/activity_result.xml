@@ -64,27 +64,26 @@
                 app:layout_constraintEnd_toEndOf="@id/imageView"
                 app:layout_constraintTop_toTopOf="@id/imageView" />
 
-            <TextView
-                android:id="@+id/textGreeting"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal|top"
-                android:layout_marginTop="84dp"
-                android:layout_marginEnd="265dp"
-                android:text="@string/greeting"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/textGreeting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-30dp"
+            android:layout_marginStart="37dp"
+            android:text="@string/greeting"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textOpening"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="37dp"
-            android:layout_marginTop="0dp"
+            android:layout_marginTop="5dp"
             android:text="@string/opening"
             android:textSize="17sp"
             app:layout_constraintEnd_toEndOf="@id/textGreeting"
@@ -209,7 +208,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp">
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvPalette"
+                android:id="@+id/rvRecommended"
                 app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
@@ -235,7 +234,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp">
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvPalette2"
+                android:id="@+id/rvAvoided"
                 app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
