@@ -119,6 +119,32 @@ class SignUpActivity : AppCompatActivity() {
         }
     }
 
+    private fun handleRegisterGoogle() {
+        val userID = FirebaseAuth.getInstance().currentUser?.uid ?: ""
+        val email = FirebaseAuth.getInstance().currentUser?.email ?: ""
+        val fullName = FirebaseAuth.getInstance().currentUser?.displayName ?: ""
+
+        viewModel.signUp(userID,email,fullName).observe(this){ result ->
+            when (result) {
+                is ResultState.Success -> {
+                    binding.progressBar.visibility = View.INVISIBLE
+                    Toast.makeText(this, "Sign up successful", Toast.LENGTH_SHORT).show()
+                    intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+                    updateUI()
+                }
+
+                is ResultState.Loading -> {
+                    binding.progressBar.visibility = View.VISIBLE
+                }
+
+                is ResultState.Error -> {
+                    binding.progressBar.visibility = View.INVISIBLE
+                    Toast.makeText(this, result.error, Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+    }
+
     private fun signUpGoogle() {
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(getString(R.string.your_web_client_id))
@@ -151,7 +177,7 @@ class SignUpActivity : AppCompatActivity() {
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     Log.d(TAG, "signInWithCredential:success")
-                    updateUI()
+                    handleRegisterGoogle()
                 } else {
                     Log.w(TAG, "signInWithCredential:failure", task.exception)
                 }

@@ -1,8 +1,6 @@
 package com.example.fitme.login
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.fitme.FitMeRepository
 import com.example.fitme.profile.model.UserModel

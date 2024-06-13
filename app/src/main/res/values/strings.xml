@@ -43,9 +43,9 @@
     <string name="detail">Cool &amp; Light</string>
 
     <!--    Home-->
-    <string name="user_test">user test</string>
-    <string name="usertest_gmail_com">usertest@gmail.com</string>
-    <string name="user_name">User Name</string>
+    <string name="user_test">loading...</string>
+    <string name="usertest_gmail_com">loading...</string>
+    <string name="user_name">loading...</string>
     <string name="home">Home</string>
     <string name="profile">Profile</string>
     <string name="title_activity_navbar">Navbar</string>

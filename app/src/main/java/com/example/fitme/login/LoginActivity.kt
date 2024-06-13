@@ -180,7 +180,7 @@ class LoginActivity : AppCompatActivity() {
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     Log.d(TAG, "signInWithCredential:success")
-                    updateUI()
+                    handleLogin()
                 } else {
                     Log.w(TAG, "signInWithCredential:failure", task.exception)
                 }
