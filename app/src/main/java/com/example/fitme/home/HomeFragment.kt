@@ -86,6 +86,7 @@ class HomeFragment : Fragment() {
         ActivityResultContracts.TakePicture()
     ) { isSuccess ->
         if (isSuccess) {
+            binding.progressBar.visibility = View.VISIBLE
             showImage(currentImageUri)
         }
     }
@@ -104,6 +105,7 @@ class HomeFragment : Fragment() {
     ) { uri: Uri? ->
         if (uri != null) {
             currentImageUri = uri
+            binding.progressBar.visibility = View.VISIBLE
             showImage(currentImageUri)
         }
     }
