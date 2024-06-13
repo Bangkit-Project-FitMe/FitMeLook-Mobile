@@ -20,6 +20,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.fitme.adapter.HistoryImageAdapter
 import com.example.fitme.databinding.FragmentHomeBinding
 import com.example.fitme.prediction.ConfirmationActivity
+import com.google.firebase.auth.FirebaseAuth
 
 class HomeFragment : Fragment() {
 
@@ -108,8 +109,10 @@ class HomeFragment : Fragment() {
     }
 
     private fun showImage(imageUri: Uri?) {
-        val intent = Intent(requireContext(), ConfirmationActivity::class.java)
-        intent.putExtra(ConfirmationActivity.EXTRA_IMAGE_URI, imageUri.toString())
+        val image = imageUri?.let { uriToFile(it, requireContext()).reduceFileImage() }
+        val intent = Intent(requireContext(), ConfirmationActivity::class.java).apply {
+            putExtra(ConfirmationActivity.EXTRA_IMAGE_FILE, image)
+        }
         startActivity(intent)
         requireActivity().finish()
     }

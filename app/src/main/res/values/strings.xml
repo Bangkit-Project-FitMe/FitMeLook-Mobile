@@ -23,7 +23,7 @@
   
     <!--    Confirmation-->
     <string name="analyze">Analyze</string>
-    <string name="retake">Retake</string>
+    <string name="retake">Cancel</string>
 
     <!--    Process-->
     <string name="great">You look great!</string>

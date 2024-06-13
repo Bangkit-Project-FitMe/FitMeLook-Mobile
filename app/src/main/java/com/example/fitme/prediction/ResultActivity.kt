@@ -2,42 +2,72 @@ package com.example.fitme.prediction
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.LayoutManager
+import com.bumptech.glide.Glide
 import com.example.fitme.R
+import com.example.fitme.ViewModelFactory
 import com.example.fitme.adapter.ColorPaletteAdapter
 import com.example.fitme.adapter.HistoryImageAdapter
 import com.example.fitme.adapter.ResultImageAdapter
 import com.example.fitme.databinding.ActivityResultBinding
 import com.example.fitme.home.MainActivity
+import com.example.fitme.login.LoginViewModel
+import com.example.fitme.prediction.model.PredictionModel
 
 class ResultActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityResultBinding
     private lateinit var skinTone: String
     private lateinit var faceShape: String
+    private val viewModel by viewModels<PredictionViewModel> {
+        ViewModelFactory.getInstance(this)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityResultBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        skinTone = "Winter"
+        val predictionModel = intent.getParcelableExtra<PredictionModel>(EXTRA_PREDICTION_MODEL)
 
-        setUpBinding()
-        setUpDescription()
-        setUpRecommendedColors()
-        setUpAvoidedColors()
+        predictionModel?.let { model ->
+            skinTone = model.seasonalType
+            faceShape = model.faceShape
 
-        val rvResult: RecyclerView = binding.recyclerView
-        val gridlayoutManager = GridLayoutManager(this, 2)
-        rvResult.layoutManager = gridlayoutManager
-        val imageList = listOf(0, 0, 0, 0, 0)
-        rvResult.adapter = ResultImageAdapter(imageList)
+            setUpBinding()
+            setUpDescription()
+            setUpRecommendedColors()
+            setUpAvoidedColors()
 
+            val rvResult: RecyclerView = binding.recyclerView
+            val gridlayoutManager = GridLayoutManager(this, 2)
+            rvResult.layoutManager = gridlayoutManager
+            val imageList = listOf(0, 0, 0, 0, 0)
+            rvResult.adapter = ResultImageAdapter(imageList)
+
+            viewModel.getSession().observe(this) { session ->
+                session?.let {
+                    val fullName = session.fullName.split(" ").firstOrNull() ?: ""
+                    val greetingText = getString(R.string.greeting, fullName)
+                    binding.textGreeting.text = greetingText
+                }
+            }
+
+            Glide.with(this)
+                .load(predictionModel.imageUrl)
+                .centerCrop()
+                .into(binding.imageView)
+
+        } ?: run {
+            Toast.makeText(this, "Prediction model is null", Toast.LENGTH_SHORT).show()
+            finish()
+        }
     }
 
     private fun setUpBinding() {
@@ -49,6 +79,21 @@ class ResultActivity : AppCompatActivity() {
     }
 
     private fun setUpDescription() {
+        binding.textSeason.text = skinTone
+        binding.textFace.text = faceShape
+
+        val photoResId = when (skinTone) {
+            "Summer" -> R.drawable.summer
+            "Autumn" -> R.drawable.autumn
+            "Winter" -> R.drawable.winter
+            else -> R.drawable.spring
+        }
+
+        Glide.with(this)
+            .load(photoResId)
+            .centerCrop()
+            .into(binding.imageIcon)
+
         val descResId = when (skinTone) {
             "Summer" -> R.string.summerDesc
             "Autumn" -> R.string.autumnDesc
@@ -98,6 +143,10 @@ class ResultActivity : AppCompatActivity() {
         }
 
         rvAvoidedColor.adapter = ColorPaletteAdapter(avoidedColorList)
+    }
+
+    companion object {
+        const val EXTRA_PREDICTION_MODEL = "EXTRA_PREDICTION_MODEL"
     }
 
 }

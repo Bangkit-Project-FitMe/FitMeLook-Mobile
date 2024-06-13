@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.fitme.di.Injection
 import com.example.fitme.home.MainViewModel
 import com.example.fitme.login.LoginViewModel
+import com.example.fitme.prediction.PredictionViewModel
 import com.example.fitme.profile.ProfileViewModel
 import com.example.fitme.signup.SignUpViewModel
 
@@ -25,6 +26,9 @@ class ViewModelFactory(private val repository: FitMeRepository) : ViewModelProvi
             }
             modelClass.isAssignableFrom(ProfileViewModel::class.java) -> {
                 ProfileViewModel(repository) as T
+            }
+            modelClass.isAssignableFrom(PredictionViewModel::class.java) -> {
+                PredictionViewModel(repository) as T
             }
             else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
         }

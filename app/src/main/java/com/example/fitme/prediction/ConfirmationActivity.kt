@@ -3,45 +3,94 @@ package com.example.fitme.prediction
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.view.View
 import android.widget.ImageView
+import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import com.bumptech.glide.Glide
 import com.example.fitme.R
+import com.example.fitme.ViewModelFactory
+import com.example.fitme.api.ResultState
 import com.example.fitme.databinding.ActivityConfirmationBinding
 import com.example.fitme.home.MainActivity
+import com.example.fitme.home.reduceFileImage
+import com.example.fitme.home.uriToFile
+import com.example.fitme.login.LoginViewModel
+import com.example.fitme.prediction.model.PredictionModel
+import com.google.firebase.auth.FirebaseAuth
+import kotlinx.coroutines.launch
+import java.io.File
 
 class ConfirmationActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityConfirmationBinding
-    private var currentImageUri: Uri? = null
+    private var currentImageFile: File? = null
+    private val viewModel by viewModels<PredictionViewModel> {
+        ViewModelFactory.getInstance(this)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityConfirmationBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val imageUriString = intent.getStringExtra(EXTRA_IMAGE_URI)
-        currentImageUri = Uri.parse(imageUriString)
+        currentImageFile = intent.getSerializableExtra(ConfirmationActivity.EXTRA_IMAGE_FILE) as File?
+        if (currentImageFile != null && currentImageFile!!.exists()) {
+            Glide.with(this)
+                .load(currentImageFile)
+                .centerCrop()
+                .into(binding.imageView)
+        } else {
+            Toast.makeText(this, "Failed to load image", Toast.LENGTH_SHORT).show()
+            finish()
+            return
+        }
 
-        Glide.with(this)
-            .load(currentImageUri)
-            .centerCrop()
-            .into(findViewById<ImageView>(R.id.imageView))
-        binding.buttonRetake.setOnClickListener { handleRetake() }
-        binding.buttonAnalyze.setOnClickListener { handleAnalyze() }
+        binding.buttonRetake.setOnClickListener { handleCancel() }
+        handleAnalyze()
     }
 
-    private fun handleRetake() {
+    private fun handleCancel() {
         startActivity(Intent(this, MainActivity::class.java))
         finish()
     }
     private fun handleAnalyze() {
-        val intent = Intent(this, ProcessActivity::class.java)
-        startActivity(intent)
-        finish()
+        binding.buttonAnalyze.setOnClickListener {
+            currentImageFile?.let { uri ->
+                val userID = FirebaseAuth.getInstance().currentUser?.uid ?: ""
+                viewModel.predict(userID, currentImageFile!!).observe(this) { predict ->
+                    when (predict) {
+                        is ResultState.Success -> {
+                            val predictionModel =  PredictionModel(
+                                predict.data.data.faceShape,
+                                predict.data.data.seasonalType,
+                                predict.data.data.faceShapeConfidenceScore,
+                                predict.data.data.seasonalTypeConfidenceScore,
+                                predict.data.data.createdAt,
+                                predict.data.data.responseImages,
+                                predict.data.data.imageUrl
+                            )
+                            val intent = Intent(this, ResultActivity::class.java)
+                            intent.putExtra(ResultActivity.EXTRA_PREDICTION_MODEL, predictionModel)
+                            startActivity(intent)
+                            finish()
+                        }
+
+                        is ResultState.Loading -> {
+                        }
+
+                        is ResultState.Error -> {
+                            Toast.makeText(this, predict.error, Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                }
+            }
+        }
     }
 
     companion object {
-        const val EXTRA_IMAGE_URI = ""
+        const val EXTRA_IMAGE_FILE = ""
     }
 }
