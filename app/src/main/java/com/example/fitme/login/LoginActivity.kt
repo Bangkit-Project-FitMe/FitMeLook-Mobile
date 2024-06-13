@@ -4,14 +4,20 @@ import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 import android.view.WindowInsets
 import android.view.WindowManager
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.example.fitme.home.MainActivity
 import com.example.fitme.R
+import com.example.fitme.ViewModelFactory
+import com.example.fitme.api.ResultState
 import com.example.fitme.databinding.ActivityLoginBinding
+import com.example.fitme.profile.model.UserModel
 import com.example.fitme.signup.SignUpActivity
+import com.example.fitme.signup.SignUpViewModel
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
@@ -24,6 +30,9 @@ class LoginActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginBinding
     private lateinit var auth: FirebaseAuth
+    private val viewModel by viewModels<LoginViewModel> {
+        ViewModelFactory.getInstance(this)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -100,12 +109,43 @@ class LoginActivity : AppCompatActivity() {
         auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-                    Toast.makeText(this, "Login successful", Toast.LENGTH_SHORT).show()
-                    updateUI()
+                    handleLogin()
                 } else {
                     Toast.makeText(this, "${task.exception?.message}", Toast.LENGTH_SHORT).show()
                 }
             }
+    }
+
+    private fun handleLogin() {
+        val userID = FirebaseAuth.getInstance().currentUser?.uid ?: ""
+
+        viewModel.login(userID).observe(this){ result ->
+            when (result) {
+                is ResultState.Success -> {
+                    binding.progressBar.visibility = View.INVISIBLE
+                    val userModel =  UserModel(
+                        result.data.data.userID,
+                        result.data.data.email,
+                        result.data.data.fullName,
+                        true
+                    )
+                    viewModel.saveSession(userModel)
+                    intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+                    ViewModelFactory.clearInstance()
+                    Toast.makeText(this, "Login successful", Toast.LENGTH_SHORT).show()
+                    updateUI()
+                }
+
+                is ResultState.Loading -> {
+                    binding.progressBar.visibility = View.VISIBLE
+                }
+
+                is ResultState.Error -> {
+                    binding.progressBar.visibility = View.INVISIBLE
+                    Toast.makeText(this, result.error, Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
     }
 
     private fun loginGoogle() {
@@ -140,7 +180,7 @@ class LoginActivity : AppCompatActivity() {
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     Log.d(TAG, "signInWithCredential:success")
-                    updateUI()
+                    handleLogin()
                 } else {
                     Log.w(TAG, "signInWithCredential:failure", task.exception)
                 }

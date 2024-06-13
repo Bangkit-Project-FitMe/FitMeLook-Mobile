@@ -2,7 +2,7 @@ package com.example.fitme.api.response
 
 import com.google.gson.annotations.SerializedName
 
-data class SignUpResponse (
+data class ErrorResponse (
 
     @field:SerializedName("status")
     val status: String,

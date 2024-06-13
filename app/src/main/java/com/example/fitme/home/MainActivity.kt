@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.widget.Button
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AlertDialog
 import com.google.android.material.navigation.NavigationView
@@ -19,8 +20,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import com.example.fitme.R
+import com.example.fitme.ViewModelFactory
 import com.example.fitme.databinding.ActivityNavbarBinding
 import com.example.fitme.login.LoginActivity
+import com.example.fitme.signup.SignUpViewModel
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.FirebaseAuth
@@ -32,6 +35,9 @@ class MainActivity : AppCompatActivity() {
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityNavbarBinding
     private lateinit var auth: FirebaseAuth
+    private val viewModel by viewModels<MainViewModel> {
+        ViewModelFactory.getInstance(this)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -122,6 +128,7 @@ class MainActivity : AppCompatActivity() {
         val googleSignInClient = GoogleSignIn.getClient(this, GoogleSignInOptions.Builder(
             GoogleSignInOptions.DEFAULT_SIGN_IN).build())
         googleSignInClient.signOut()
+        viewModel.logout()
         updateUI()
     }
 

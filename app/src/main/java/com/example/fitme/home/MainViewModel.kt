@@ -10,10 +10,6 @@ import kotlinx.coroutines.launch
 
 class MainViewModel(private val repository: FitMeRepository) : ViewModel() {
 
-    fun getSession(): LiveData<UserModel> {
-        return repository.getSession().asLiveData()
-    }
-
     fun logout() {
         viewModelScope.launch {
             repository.logout()

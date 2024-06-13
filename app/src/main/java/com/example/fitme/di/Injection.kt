@@ -14,7 +14,7 @@ object Injection {
         val user = runBlocking {
             pref.getSession().first()
         }
-        val apiService = ApiConfig.getApiService(user.token)
+        val apiService = ApiConfig.getApiService()
         return FitMeRepository.getInstance(pref, apiService)
     }
 }
