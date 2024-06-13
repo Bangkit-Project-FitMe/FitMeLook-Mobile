@@ -19,7 +19,7 @@ data class ProfileData(
     @field:SerializedName("user_id")
     val userID: String,
 
-    @field:SerializedName("fullName")
+    @field:SerializedName("full_name")
     val fullName: String,
 
     @field:SerializedName("created_at")

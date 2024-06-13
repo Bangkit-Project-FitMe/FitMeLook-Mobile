@@ -98,22 +98,21 @@ class SignUpActivity : AppCompatActivity() {
         val email = FirebaseAuth.getInstance().currentUser?.email ?: ""
         val fullName = binding.nameInput.text.toString().trim()
 
-        Log.d("SignUp",userID + " " + email + " " + fullName )
-
         viewModel.signUp(userID,email,fullName).observe(this){ result ->
             when (result) {
                 is ResultState.Success -> {
-                     binding.progressBar.visibility = View.INVISIBLE
+                    binding.progressBar.visibility = View.INVISIBLE
                     Toast.makeText(this, "Sign up successful", Toast.LENGTH_SHORT).show()
+                    intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
                     updateUI()
                 }
 
                 is ResultState.Loading -> {
-                         binding.progressBar.visibility = View.VISIBLE
+                    binding.progressBar.visibility = View.VISIBLE
                 }
 
                 is ResultState.Error -> {
-                     binding.progressBar.visibility = View.INVISIBLE
+                    binding.progressBar.visibility = View.INVISIBLE
                     Toast.makeText(this, result.error, Toast.LENGTH_SHORT).show()
                 }
             }

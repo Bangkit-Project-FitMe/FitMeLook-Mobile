@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.fitme.di.Injection
 import com.example.fitme.home.MainViewModel
+import com.example.fitme.login.LoginViewModel
 import com.example.fitme.signup.SignUpViewModel
 
 class ViewModelFactory(private val repository: FitMeRepository) : ViewModelProvider.NewInstanceFactory() {
@@ -17,6 +18,9 @@ class ViewModelFactory(private val repository: FitMeRepository) : ViewModelProvi
             }
             modelClass.isAssignableFrom(SignUpViewModel::class.java) -> {
                 SignUpViewModel(repository) as T
+            }
+            modelClass.isAssignableFrom(LoginViewModel::class.java) -> {
+                LoginViewModel(repository) as T
             }
             else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
         }
