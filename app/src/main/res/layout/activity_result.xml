@@ -9,8 +9,31 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="23dp">
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@drawable/nav_item_background">
+
+            <ImageButton
+                android:id="@+id/btnBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@drawable/back" />
+
+            <TextView
+                android:id="@+id/toolbarTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:text="@string/result"
+                android:layout_marginStart="35dp"
+                android:textColor="@android:color/black"
+                android:textSize="20sp" />
+        </androidx.appcompat.widget.Toolbar>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -25,6 +48,7 @@
                 android:layout_gravity="center_horizontal|top"
                 android:background="@drawable/circle_border"
                 android:scaleType="centerCrop"
+                android:layout_marginEnd="20dp"
                 android:src="@drawable/ic_launcher_foreground"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -45,8 +69,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal|top"
-                android:layout_marginTop="72dp"
-                android:layout_marginEnd="236dp"
+                android:layout_marginTop="84dp"
+                android:layout_marginEnd="265dp"
                 android:text="@string/greeting"
                 android:textSize="20sp"
                 android:textStyle="bold"
@@ -55,14 +79,25 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
+        <TextView
+            android:id="@+id/textOpening"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="37dp"
+            android:layout_marginTop="0dp"
+            android:text="@string/opening"
+            android:textSize="17sp"
+            app:layout_constraintEnd_toEndOf="@id/textGreeting"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <androidx.cardview.widget.CardView
             android:id="@+id/cardRoundedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             app:cardCornerRadius="20dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
             app:cardBackgroundColor="@color/summer"
             android:layout_marginTop="16dp">
 
@@ -130,7 +165,9 @@
             android:layout_height="wrap_content"
             app:cardCornerRadius="16dp"
             app:cardElevation="4dp"
-            android:layout_marginTop="16dp">
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -159,16 +196,18 @@
             android:id="@+id/textPalette"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="6dp"
-            android:layout_marginEnd="6dp"
-            android:text="@string/palette"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:text="@string/recommended"
             android:textStyle="bold"
             android:textSize="18sp"
             android:layout_marginTop="16dp"/>
 
         <HorizontalScrollView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp">
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvPalette"
                 app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
@@ -180,11 +219,38 @@
         </HorizontalScrollView>
 
         <TextView
+            android:id="@+id/textPalette2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:text="@string/avoided"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:layout_marginTop="16dp"/>
+
+        <HorizontalScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp">
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvPalette2"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                tools:listitem="@layout/item_palette" />
+        </HorizontalScrollView>
+
+
+        <TextView
             android:id="@+id/textForYou"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="6dp"
-            android:layout_marginEnd="6dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
             android:text="@string/forYou"
             android:textStyle="bold"
             android:textSize="18sp"
@@ -194,8 +260,8 @@
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="6dp"
-            android:layout_marginEnd="0dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:spanCount="2"
             android:layout_marginTop="8dp"
