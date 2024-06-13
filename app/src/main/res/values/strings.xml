@@ -34,7 +34,7 @@
     <string name="greeting">Hello %1$s</string>
     <string name="opening">Here’s your fashion recommendations</string>
     <string name="about">About your skin tone</string>
-    <string name="desc">Summer cool and light skin tones exude an ethereal elegance reminiscent of moonlit nights and gentle ocean breezes. Pale porcelain hues with subtle undertones of pink or blue characterize this complexion, giving it a delicate and refined appearance. The Summer skin tone harmonizes beautifully with soft, cool shades like lavender, dusty rose, and icy blues, which complement its natural coolness without overpowering its inherent lightness. In the warmth of summer sunlight, this complexion radiates a serene and luminous glow, reminiscent of the gentle shimmer of moonlight on a tranquil evening.</string>
+    <string name="desc">Description</string>
     <string name="palette">Color Palette</string>
     <string name="forYou">For You</string>
     <string name="shape">Shape</string>
@@ -110,6 +110,7 @@
     </string>
     <string name="read_more">Read more</string>
     <string name="summer">Summer</string>
+    <string name="desc_summer">Summer cool and light skin tones exude an ethereal elegance reminiscent of moonlit nights and gentle ocean breezes. Pale porcelain hues with subtle undertones of pink or blue characterize this complexion, giving it a delicate and refined appearance. The Summer skin tone harmonizes beautifully with soft, cool shades like lavender, dusty rose, and icy blues, which complement its natural coolness without overpowering its inherent lightness. In the warmth of summer sunlight, this complexion radiates a serene and luminous glow, reminiscent of the gentle shimmer of moonlight on a tranquil evening.</string>
     <string name="spring">Spring</string>
     <string name="large_text">
         "Material is the metaphor.\n\n"
@@ -200,5 +201,7 @@
         "For example, position the FAB to one side of stream of a cards so the FAB won’t interfere "
         "when a user tries to pick up one of cards.\n\n"
     </string>
+    <string name="autumn">autumn\n</string>
+    <string name="winter">winter</string>
 
 </resources>
