@@ -24,7 +24,7 @@ class ProfileFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View {
-        val viewModel by viewModels<MainViewModel> {
+        val viewModel by viewModels<ProfileViewModel> {
             ViewModelFactory.getInstance(requireContext())
         }
         _binding = FragmentProfileBinding.inflate(inflater, container, false)
