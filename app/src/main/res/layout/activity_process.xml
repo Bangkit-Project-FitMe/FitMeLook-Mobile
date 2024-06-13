@@ -51,8 +51,8 @@
 
     <FrameLayout
         android:id="@+id/frame"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="260dp"
+        android:layout_height="320dp"
         android:layout_marginTop="30dp"
         android:layout_marginBottom="30dp"
         android:scaleType="centerCrop"
@@ -64,8 +64,9 @@
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="255dp"
-            android:layout_height="299dp"
+            android:layout_width="220dp"
+            android:layout_height="270dp"
+            android:layout_gravity="center"
             android:scaleType="centerCrop"
             android:adjustViewBounds="true"
             android:src="@drawable/ic_launcher_foreground" />
