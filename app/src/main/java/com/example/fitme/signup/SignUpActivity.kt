@@ -9,7 +9,6 @@ import android.view.WindowInsets
 import android.view.WindowManager
 import android.widget.Toast
 import androidx.activity.viewModels
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.example.fitme.databinding.ActivitySignupBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -95,27 +94,27 @@ class SignUpActivity : AppCompatActivity() {
     }
 
     private fun handleRegister() {
-        binding.signupButton.setOnClickListener {
-            val userID = FirebaseAuth.getInstance().currentUser?.uid ?: ""
-            val email = FirebaseAuth.getInstance().currentUser?.email ?: ""
-            val fullName = binding.nameInput.text.toString().trim()
+        val userID = FirebaseAuth.getInstance().currentUser?.uid ?: ""
+        val email = FirebaseAuth.getInstance().currentUser?.email ?: ""
+        val fullName = binding.nameInput.text.toString().trim()
 
-                viewModel.signUp(userID,email,fullName).observe(this){ result ->
-                when (result) {
-                    is ResultState.Success -> {
-                        // binding.progressBar.visibility = View.INVISIBLE
-                        Toast.makeText(this, "Sign up successful", Toast.LENGTH_SHORT).show()
-                        updateUI()
-                    }
+        Log.d("SignUp",userID + " " + email + " " + fullName )
 
-                    is ResultState.Loading -> {
-                        // binding.progressBar.visibility = View.VISIBLE
-                    }
+        viewModel.signUp(userID,email,fullName).observe(this){ result ->
+            when (result) {
+                is ResultState.Success -> {
+                     binding.progressBar.visibility = View.INVISIBLE
+                    Toast.makeText(this, "Sign up successful", Toast.LENGTH_SHORT).show()
+                    updateUI()
+                }
 
-                    is ResultState.Error -> {
-                        // binding.progressBar.visibility = View.INVISIBLE
-                        Toast.makeText(this, result.error, Toast.LENGTH_SHORT).show()
-                    }
+                is ResultState.Loading -> {
+                         binding.progressBar.visibility = View.VISIBLE
+                }
+
+                is ResultState.Error -> {
+                     binding.progressBar.visibility = View.INVISIBLE
+                    Toast.makeText(this, result.error, Toast.LENGTH_SHORT).show()
                 }
             }
         }
