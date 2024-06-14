@@ -6,12 +6,17 @@ import com.example.fitme.profile.pref.UserPreference
 import com.example.fitme.api.ApiService
 import com.example.fitme.api.ResultState
 import com.example.fitme.api.response.ErrorResponse
+import com.example.fitme.api.response.PredictionResponse
 import com.example.fitme.api.response.ProfileResponse
 import com.example.fitme.api.response.SignUpResponse
 import com.example.fitme.profile.model.UserModel
 import com.google.gson.Gson
 import kotlinx.coroutines.flow.Flow
+import okhttp3.MediaType.Companion.toMediaType
+import okhttp3.MultipartBody
+import okhttp3.RequestBody.Companion.asRequestBody
 import retrofit2.HttpException
+import java.io.File
 
 class FitMeRepository private constructor(
     private val userPreference: UserPreference,
@@ -45,6 +50,23 @@ class FitMeRepository private constructor(
         emit(ResultState.Loading)
         try {
             val response = apiService.getUser(userID)
+            emit(ResultState.Success(response))
+        }catch (e: HttpException){
+            val body = Gson().fromJson(e.response()?.errorBody()?.string(), ErrorResponse::class.java)
+            emit(ResultState.Error(body.message))
+        }
+    }
+
+    fun predict(userID: String, imageFile: File): LiveData<ResultState<PredictionResponse>> = liveData{
+        emit(ResultState.Loading)
+        val requestImageFile = imageFile.asRequestBody("image/jpeg".toMediaType())
+        val multipartBody = MultipartBody.Part.createFormData(
+            "image",
+            imageFile.name,
+            requestImageFile
+        )
+        try {
+            val response = apiService.predict(userID, multipartBody)
             emit(ResultState.Success(response))
         }catch (e: HttpException){
             val body = Gson().fromJson(e.response()?.errorBody()?.string(), ErrorResponse::class.java)

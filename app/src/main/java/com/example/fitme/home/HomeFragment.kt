@@ -20,6 +20,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.fitme.adapter.HistoryImageAdapter
 import com.example.fitme.databinding.FragmentHomeBinding
 import com.example.fitme.prediction.ConfirmationActivity
+import com.google.firebase.auth.FirebaseAuth
 
 class HomeFragment : Fragment() {
 
@@ -85,6 +86,7 @@ class HomeFragment : Fragment() {
         ActivityResultContracts.TakePicture()
     ) { isSuccess ->
         if (isSuccess) {
+            binding.progressBar.visibility = View.VISIBLE
             showImage(currentImageUri)
         }
     }
@@ -103,13 +105,16 @@ class HomeFragment : Fragment() {
     ) { uri: Uri? ->
         if (uri != null) {
             currentImageUri = uri
+            binding.progressBar.visibility = View.VISIBLE
             showImage(currentImageUri)
         }
     }
 
     private fun showImage(imageUri: Uri?) {
-        val intent = Intent(requireContext(), ConfirmationActivity::class.java)
-        intent.putExtra(ConfirmationActivity.EXTRA_IMAGE_URI, imageUri.toString())
+        val image = imageUri?.let { uriToFile(it, requireContext()).reduceFileImage() }
+        val intent = Intent(requireContext(), ConfirmationActivity::class.java).apply {
+            putExtra(ConfirmationActivity.EXTRA_IMAGE_FILE, image)
+        }
         startActivity(intent)
         requireActivity().finish()
     }
