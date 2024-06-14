@@ -1,6 +1,7 @@
 package com.example.fitme.profile.pref
 
 import android.content.Context
+import android.util.Log
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.booleanPreferencesKey
@@ -15,7 +16,7 @@ val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "se
 
 class UserPreference private constructor(private val dataStore: DataStore<Preferences>) {
 
-    suspend fun saveSession(user: UserModel){
+    suspend fun saveSession(user: UserModel) {
         dataStore.edit { preferences ->
             preferences[USERID_KEY] = user.userID
             preferences[EMAIL_KEY] = user.email

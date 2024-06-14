@@ -15,7 +15,6 @@ import com.bumptech.glide.load.resource.bitmap.CircleCrop
 import com.example.fitme.R
 import com.example.fitme.ViewModelFactory
 import com.example.fitme.adapter.ColorPaletteAdapter
-import com.example.fitme.adapter.HistoryImageAdapter
 import com.example.fitme.adapter.ResultImageAdapter
 import com.example.fitme.databinding.ActivityResultBinding
 import com.example.fitme.home.MainActivity

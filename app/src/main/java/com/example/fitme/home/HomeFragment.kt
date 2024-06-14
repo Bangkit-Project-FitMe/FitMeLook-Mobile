@@ -17,7 +17,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.fitme.adapter.HistoryImageAdapter
+import com.example.fitme.adapter.ItemImageAdapter
 import com.example.fitme.databinding.FragmentHomeBinding
 import com.example.fitme.prediction.ConfirmationActivity
 import com.google.firebase.auth.FirebaseAuth
@@ -25,7 +25,9 @@ import com.google.firebase.auth.FirebaseAuth
 class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
+
     private var currentImageUri: Uri? = null
+
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -38,13 +40,6 @@ class HomeFragment : Fragment() {
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
-
-        val recyclerView: RecyclerView = binding.rvHome
-        val layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-        recyclerView.layoutManager = layoutManager
-
-        val imageList = listOf(0, 0, 0, 0, 0)
-        recyclerView.adapter = HistoryImageAdapter(imageList)
 
         binding.btnTakePhoto.setOnClickListener {
             if (!allPermissionsGranted()) {

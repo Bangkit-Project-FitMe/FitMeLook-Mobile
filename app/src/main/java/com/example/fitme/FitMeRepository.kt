@@ -1,5 +1,6 @@
 package com.example.fitme
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.liveData
 import com.example.fitme.profile.pref.UserPreference
@@ -12,6 +13,7 @@ import com.example.fitme.api.response.SignUpResponse
 import com.example.fitme.profile.model.UserModel
 import com.google.gson.Gson
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.map
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.MultipartBody
 import okhttp3.RequestBody.Companion.asRequestBody
