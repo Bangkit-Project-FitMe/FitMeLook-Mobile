@@ -9,8 +9,10 @@
 
     <Button
         android:id="@+id/btnLogout"
-        android:layout_width="279dp"
+        android:layout_width="match_parent"
         android:layout_height="57dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
         android:layout_marginBottom="88dp"
         android:backgroundTint="#FF5722"
         android:text="Log out"
@@ -28,6 +30,7 @@
         android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="bold"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="@+id/btnLogout"
         app:layout_constraintHorizontal_bias="0.118"
         app:layout_constraintStart_toStartOf="@+id/btnLogout"
