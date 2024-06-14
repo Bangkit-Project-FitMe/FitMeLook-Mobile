@@ -6,6 +6,7 @@ import android.util.Log
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -74,6 +75,7 @@ class ResultActivity : AppCompatActivity() {
     private fun setUpBinding() {
         binding.btnBack.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
+            intent.removeExtra(ResultActivity.EXTRA_PREDICTION_MODEL)
             startActivity(intent)
             finish()
         }
@@ -112,6 +114,15 @@ class ResultActivity : AppCompatActivity() {
         }
         val descInfo = getString(descResInfo)
         binding.textDetail.text = descInfo
+
+        val colorResId = when (skinTone) {
+            "Summer" -> R.color.summer
+            "Autumn" -> R.color.autumn
+            "Winter" -> R.color.winter
+            else -> R.color.spring
+        }
+        val color = ContextCompat.getColor(this, colorResId)
+        binding.cardRoundedBox.setCardBackgroundColor(color)
     }
 
     private fun setUpRecommendedColors() {

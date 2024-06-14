@@ -107,6 +107,7 @@ class HomeFragment : Fragment() {
 
     private fun showImage(imageUri: Uri?) {
         val image = imageUri?.let { uriToFile(it, requireContext()).reduceFileImage() }
+        Log.d("HomeFragment", "Current image file: ${image?.absolutePath}")
         val intent = Intent(requireContext(), ConfirmationActivity::class.java).apply {
             putExtra(ConfirmationActivity.EXTRA_IMAGE_FILE, image)
         }

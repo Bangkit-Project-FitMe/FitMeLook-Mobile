@@ -68,7 +68,9 @@ class FitMeRepository private constructor(
             requestImageFile
         )
         try {
+            Log.d("PredictionViewModel", "Sending file: ${imageFile.absolutePath}")
             val response = apiService.predict(userID, multipartBody)
+            Log.d("PredictionViewModel", "Response: $response")
             emit(ResultState.Success(response))
         }catch (e: HttpException){
             val body = Gson().fromJson(e.response()?.errorBody()?.string(), ErrorResponse::class.java)
