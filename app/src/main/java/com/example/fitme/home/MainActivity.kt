@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.widget.Button
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AlertDialog
 import com.google.android.material.navigation.NavigationView
@@ -19,8 +20,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import com.example.fitme.R
+import com.example.fitme.ViewModelFactory
 import com.example.fitme.databinding.ActivityNavbarBinding
 import com.example.fitme.login.LoginActivity
+import com.example.fitme.signup.SignUpViewModel
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.FirebaseAuth
@@ -32,6 +35,9 @@ class MainActivity : AppCompatActivity() {
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityNavbarBinding
     private lateinit var auth: FirebaseAuth
+    private val viewModel by viewModels<MainViewModel> {
+        ViewModelFactory.getInstance(this)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,14 +45,12 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityNavbarBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        auth = Firebase.auth
+
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
 
-        auth = Firebase.auth
-
         val drawerLayout: DrawerLayout = binding.drawerLayout
-
-
         val toggle = ActionBarDrawerToggle(
             this, drawerLayout, toolbar,
             R.string.navigation_drawer_open,
@@ -66,7 +70,6 @@ class MainActivity : AppCompatActivity() {
                 R.id.nav_home, R.id.nav_profile, R.id.nav_history
             ), drawerLayout
         )
-
 
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
@@ -99,14 +102,23 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    override fun onStart() {
+        super.onStart()
+        val currentUser = FirebaseAuth.getInstance().currentUser
+        if (currentUser == null) {
+            startActivity(Intent(this, LoginActivity::class.java))
+            finish()
+        }
+    }
+
     private fun showLogoutConfirmationDialog() {
         val builder = AlertDialog.Builder(this)
         builder.setTitle("Logout")
         builder.setMessage("Are you sure you want to logout?")
-        builder.setPositiveButton("Logout") { dialogInterface: DialogInterface, i: Int ->
+        builder.setPositiveButton("Logout") { _: DialogInterface, _: Int ->
             signOut()
         }
-        builder.setNegativeButton("Cancel") { dialogInterface: DialogInterface, i: Int -> }
+        builder.setNegativeButton("Cancel") { _: DialogInterface, _: Int -> }
         val dialog = builder.create()
         dialog.show()
     }
@@ -116,6 +128,7 @@ class MainActivity : AppCompatActivity() {
         val googleSignInClient = GoogleSignIn.getClient(this, GoogleSignInOptions.Builder(
             GoogleSignInOptions.DEFAULT_SIGN_IN).build())
         googleSignInClient.signOut()
+        viewModel.logout()
         updateUI()
     }
 
@@ -138,4 +151,5 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment_content_navbar)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
+
 }

@@ -68,7 +68,7 @@ class HistoryFragment : Fragment() {
     }
 
     private fun fetchHistoryData(userId: String) {
-        val apiService = ApiConfig.getApiService("")
+        val apiService = ApiConfig.getApiService()
         historyViewModel.fetchHistoryData(apiService, userId)
         Log.d("HistoryFragment", "User ID: $userId")
     }

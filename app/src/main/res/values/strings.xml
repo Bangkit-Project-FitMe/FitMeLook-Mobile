@@ -10,6 +10,7 @@
     <string name="or">OR</string>
     <string name="loginGoogle">Login with Google</string>
     <string name="loginToSignup">Don’t have an account? Sign Up</string>
+    <string name="forgotPw">Forgot Password</string>
 
     <!--    Sign Up-->
     <string name="signup1">Create</string>
@@ -19,13 +20,10 @@
     <string name="signupToLogin">Already have an account? Login</string>
     <string name="signupGoogle">Sign up with Google</string>
     <string name="your_web_client_id">171767667369-k52birluj6iujti33hquvps57rgoclce.apps.googleusercontent.com</string>
-
-    <!--    Home-->
-    <string name="pageHome">Home</string>
   
     <!--    Confirmation-->
     <string name="analyze">Analyze</string>
-    <string name="retake">Retake</string>
+    <string name="retake">Cancel</string>
 
     <!--    Process-->
     <string name="great">You look great!</string>
@@ -33,20 +31,23 @@
     <string name="analyzing">We’re analyzing your face</string>
 
     <!--    Result-->
+    <string name="result">Result</string>
     <string name="greeting">Hello %1$s</string>
     <string name="opening">Here’s your fashion recommendations</string>
     <string name="about">About your skin tone</string>
     <string name="desc">Summer cool and light skin tones exude an ethereal elegance reminiscent of moonlit nights and gentle ocean breezes. Pale porcelain hues with subtle undertones of pink or blue characterize this complexion, giving it a delicate and refined appearance. The Summer skin tone harmonizes beautifully with soft, cool shades like lavender, dusty rose, and icy blues, which complement its natural coolness without overpowering its inherent lightness. In the warmth of summer sunlight, this complexion radiates a serene and luminous glow, reminiscent of the gentle shimmer of moonlight on a tranquil evening.</string>
-    <string name="palette">Color Palette</string>
+    <string name="recommended">Recommended Colors</string>
+    <string name="avoided">Avoided Colors</string>
     <string name="forYou">For You</string>
     <string name="shape">Shape</string>
     <string name="face">Oval</string>
     <string name="season">Summer</string>
     <string name="detail">Cool &amp; Light</string>
 
-    <string name="user_test">user test</string>
-    <string name="usertest_gmail_com">usertest@gmail.com</string>
-    <string name="user_name">User Name</string>
+    <!--    Home-->
+    <string name="user_test">loading...</string>
+    <string name="usertest_gmail_com">loading...</string>
+    <string name="user_name">loading...</string>
     <string name="home">Home</string>
     <string name="profile">Profile</string>
     <string name="title_activity_navbar">Navbar</string>
@@ -56,7 +57,6 @@
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
-
     <string name="menu_home">Home</string>
     <string name="menu_profile">Profile</string>
     <string name="menu_history">History</string>
@@ -70,6 +70,9 @@
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
+    <string name="a_photo_of_you">A photo of you</string>
+    <string name="please_make_sure_your_photo_clearly_shows_your_face">Please make sure your photo clearly shows your face</string>
+    <string name="about_skintone">About Skintone</string>
 
     <string name="lorem_ipsum">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris
@@ -107,8 +110,18 @@
         libero vel nunc consequat, quis tincidunt nisl eleifend. Cras bibendum enim a justo luctus
         vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
     </string>
-    <string name="a_photo_of_you">A photo of you</string>
-    <string name="please_make_sure_your_photo_clearly_shows_your_face">Please make sure your photo clearly shows your face</string>
-    <string name="about_skintone">About Skintone</string>
+
+    <!--    Desc Temp-->
+    <string name="summerDesc">Summer cool and light skin tones exude an ethereal elegance reminiscent of moonlit nights and gentle ocean breezes. Pale porcelain hues with subtle undertones of pink or blue characterize this complexion, giving it a delicate and refined appearance. The Summer skin tone harmonizes beautifully with soft, cool shades like lavender, dusty rose, and icy blues, which complement its natural coolness without overpowering its inherent lightness. In the warmth of summer sunlight, this complexion radiates a serene and luminous glow, reminiscent of the gentle shimmer of moonlight on a tranquil evening.</string>
+    <string name="autumnDesc">Autumn cool and light skin tones exude an ethereal elegance reminiscent of moonlit nights and gentle ocean breezes. Pale porcelain hues with subtle undertones of pink or blue characterize this complexion, giving it a delicate and refined appearance. The Summer skin tone harmonizes beautifully with soft, cool shades like lavender, dusty rose, and icy blues, which complement its natural coolness without overpowering its inherent lightness. In the warmth of summer sunlight, this complexion radiates a serene and luminous glow, reminiscent of the gentle shimmer of moonlight on a tranquil evening.</string>
+    <string name="winterDesc">Winter cool and light skin tones exude an ethereal elegance reminiscent of moonlit nights and gentle ocean breezes. Pale porcelain hues with subtle undertones of pink or blue characterize this complexion, giving it a delicate and refined appearance. The Summer skin tone harmonizes beautifully with soft, cool shades like lavender, dusty rose, and icy blues, which complement its natural coolness without overpowering its inherent lightness. In the warmth of summer sunlight, this complexion radiates a serene and luminous glow, reminiscent of the gentle shimmer of moonlight on a tranquil evening.</string>
+    <string name="springDesc">Spring cool and light skin tones exude an ethereal elegance reminiscent of moonlit nights and gentle ocean breezes. Pale porcelain hues with subtle undertones of pink or blue characterize this complexion, giving it a delicate and refined appearance. The Summer skin tone harmonizes beautifully with soft, cool shades like lavender, dusty rose, and icy blues, which complement its natural coolness without overpowering its inherent lightness. In the warmth of summer sunlight, this complexion radiates a serene and luminous glow, reminiscent of the gentle shimmer of moonlight on a tranquil evening.</string>
+
+    <!--    Desc 4 Seasonal Color-->
+    <string name="summerInfo">Cool &amp; Light</string>
+    <string name="autumnInfo">Warm &amp; Deep</string>
+    <string name="winterInfo">Cool &amp; Deep</string>
+    <string name="springInfo">Warm &amp; Light</string>
+
 
 </resources>
