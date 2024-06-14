@@ -2,6 +2,7 @@ package com.example.fitme.prediction
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -49,7 +50,7 @@ class ResultActivity : AppCompatActivity() {
             val rvResult: RecyclerView = binding.recyclerView
             val gridlayoutManager = GridLayoutManager(this, 2)
             rvResult.layoutManager = gridlayoutManager
-            val imageList = listOf(0, 0, 0, 0, 0)
+            val imageList = predictionModel.responseImages.shuffled().take(6)
             rvResult.adapter = ResultImageAdapter(imageList)
 
             viewModel.getSession().observe(this) { session ->

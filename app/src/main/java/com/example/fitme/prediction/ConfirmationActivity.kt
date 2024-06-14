@@ -1,26 +1,18 @@
 package com.example.fitme.prediction
 
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.view.View
-import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.lifecycleScope
 import com.bumptech.glide.Glide
-import com.example.fitme.R
 import com.example.fitme.ViewModelFactory
 import com.example.fitme.api.ResultState
 import com.example.fitme.databinding.ActivityConfirmationBinding
 import com.example.fitme.home.MainActivity
-import com.example.fitme.home.reduceFileImage
-import com.example.fitme.home.uriToFile
-import com.example.fitme.login.LoginViewModel
 import com.example.fitme.prediction.model.PredictionModel
 import com.google.firebase.auth.FirebaseAuth
-import kotlinx.coroutines.launch
 import java.io.File
 
 class ConfirmationActivity : AppCompatActivity() {
@@ -79,6 +71,13 @@ class ConfirmationActivity : AppCompatActivity() {
                         }
 
                         is ResultState.Loading -> {
+                            binding.buttonAnalyze.visibility = View.GONE
+                            binding.buttonRetake.visibility = View.GONE
+
+                            binding.textGreat.visibility = View.VISIBLE
+                            binding.textWait.visibility = View.VISIBLE
+                            binding.textAnalyzing.visibility = View.VISIBLE
+                            binding.progressBar.visibility = View.VISIBLE
                         }
 
                         is ResultState.Error -> {

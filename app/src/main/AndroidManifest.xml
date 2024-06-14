@@ -25,9 +25,6 @@
             android:name=".prediction.ResultActivity"
             android:exported="false" />
         <activity
-            android:name=".prediction.ProcessActivity"
-            android:exported="true" />
-        <activity
             android:name=".prediction.ConfirmationActivity"
             android:exported="false" />
         <activity

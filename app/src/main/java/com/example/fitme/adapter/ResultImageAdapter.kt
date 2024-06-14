@@ -4,12 +4,15 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.fitme.databinding.ItemResultBinding
+import com.bumptech.glide.Glide
 
-class ResultImageAdapter(private val imageList: List<Int>) : RecyclerView.Adapter<ResultImageAdapter.ResultViewHolder>() {
+class ResultImageAdapter(private val imageUrlList: List<String>) : RecyclerView.Adapter<ResultImageAdapter.ResultViewHolder>() {
 
     inner class ResultViewHolder(private val binding: ItemResultBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(imageResId: Int) {
-            binding.imageView.setImageResource(imageResId)
+        fun bind(imageUrl: String) {
+            Glide.with(itemView.context)
+                .load(imageUrl)
+                .into(binding.imageView)
         }
     }
 
@@ -19,10 +22,11 @@ class ResultImageAdapter(private val imageList: List<Int>) : RecyclerView.Adapte
     }
 
     override fun onBindViewHolder(holder: ResultViewHolder, position: Int) {
-        holder.bind(imageList[position])
+        val imageUrl = imageUrlList[position]
+        holder.bind(imageUrl)
     }
 
     override fun getItemCount(): Int {
-        return imageList.size
+        return imageUrlList.size
     }
 }
