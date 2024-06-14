@@ -1,9 +1,11 @@
 package com.example.fitme
 
+import android.util.Log
 import com.example.fitme.profile.pref.UserPreference
 import com.example.fitme.api.ApiService
 import com.example.fitme.profile.model.UserModel
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.map
 
 class FitMeRepository private constructor(
     private val userPreference: UserPreference,
@@ -15,7 +17,10 @@ class FitMeRepository private constructor(
     }
 
     fun getSession(): Flow<UserModel> {
-        return userPreference.getSession()
+        return userPreference.getSession().map { user ->
+            Log.d("FitMeRepository", "Retrieved token in repository: ${user.token}")
+            user
+        }
     }
 
     suspend fun logout() {

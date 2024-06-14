@@ -2,6 +2,7 @@ package com.example.fitme.profile.pref
 
 
 import android.content.Context
+import android.util.Log
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.booleanPreferencesKey
@@ -16,7 +17,7 @@ val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "se
 
 class UserPreference private constructor(private val dataStore: DataStore<Preferences>) {
 
-    suspend fun saveSession(user: UserModel){
+    suspend fun saveSession(user: UserModel) {
         dataStore.edit { preferences ->
             preferences[FULLNAME_KEY] = user.fullname
             preferences[EMAIL_KEY] = user.email
@@ -24,6 +25,7 @@ class UserPreference private constructor(private val dataStore: DataStore<Prefer
             preferences[TOKEN_KEY] = user.token
             preferences[IS_LOGIN] = true
         }
+        Log.d("UserPreference", "Saved token: ${user.token}")
     }
 
     fun getSession(): Flow<UserModel>{
@@ -34,7 +36,9 @@ class UserPreference private constructor(private val dataStore: DataStore<Prefer
                 preferences[PASSWORD_KEY] ?: "",
                 preferences[TOKEN_KEY] ?: "",
                 preferences[IS_LOGIN]?: false
-            )
+            ).also {
+                Log.d("UserPreference", "Retrieved token: ${it.token}")
+            }
         }
     }
 

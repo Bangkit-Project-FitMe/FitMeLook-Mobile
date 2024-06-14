@@ -19,5 +19,4 @@ class MainViewModel(private val repository: FitMeRepository) : ViewModel() {
             repository.logout()
         }
     }
-
 }

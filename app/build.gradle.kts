@@ -56,6 +56,7 @@ dependencies {
     implementation("com.squareup.okhttp3:logging-interceptor:4.11.0")
     implementation("androidx.exifinterface:exifinterface:1.3.6")
     implementation("androidx.activity:activity-ktx:1.7.2")
+    implementation ("androidx.recyclerview:recyclerview:1.3.2")
 
     implementation("com.google.firebase:firebase-auth")
     implementation(platform("com.google.firebase:firebase-bom:33.1.0"))
@@ -65,6 +66,7 @@ dependencies {
     implementation("androidx.navigation:navigation-ui-ktx:2.7.7")
 
     testImplementation("junit:junit:4.13.2")
+    annotationProcessor ("com.github.bumptech.glide:compiler:4.16.0")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
 }
