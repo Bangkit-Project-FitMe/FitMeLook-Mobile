@@ -35,8 +35,6 @@ class ConfirmationActivity : AppCompatActivity() {
         if (currentImageFile != null && currentImageFile!!.exists()) {
             Glide.with(this)
                 .load(currentImageFile)
-                .skipMemoryCache(true)
-                .diskCacheStrategy(DiskCacheStrategy.NONE)
                 .centerCrop()
                 .into(binding.imageView)
         } else {
@@ -61,19 +59,26 @@ class ConfirmationActivity : AppCompatActivity() {
                 viewModel.predict(userID, uri!!).observe(this) { predict ->
                     when (predict) {
                         is ResultState.Success -> {
-                            val predictionModel =  PredictionModel(
-                                predict.data.data.faceShape,
-                                predict.data.data.seasonalType,
-                                predict.data.data.faceShapeConfidenceScore,
-                                predict.data.data.seasonalTypeConfidenceScore,
-                                predict.data.data.createdAt,
-                                predict.data.data.responseImages,
-                                predict.data.data.imageUrl
-                            )
-                            val intent = Intent(this, ResultActivity::class.java)
-                            intent.putExtra(ResultActivity.EXTRA_PREDICTION_MODEL, predictionModel)
-                            startActivity(intent)
-                            finish()
+                            Toast.makeText(this, predict.data.message, Toast.LENGTH_SHORT).show()
+                            if (predict.data.data.responseImages.isEmpty()) {
+                                val intent = Intent(this, MainActivity::class.java)
+                                startActivity(intent)
+                                finish()
+                            } else {
+                                val predictionModel =  PredictionModel(
+                                    predict.data.data.faceShape?:"",
+                                    predict.data.data.seasonalType?:"",
+                                    predict.data.data.faceShapeConfidenceScore?:0.0,
+                                    predict.data.data.seasonalTypeConfidenceScore?:0.0,
+                                    predict.data.data.createdAt,
+                                    predict.data.data.responseImages,
+                                    predict.data.data.imageUrl
+                                )
+                                val intent = Intent(this, ResultActivity::class.java)
+                                intent.putExtra(ResultActivity.EXTRA_PREDICTION_MODEL, predictionModel)
+                                startActivity(intent)
+                                finish()
+                            }
                         }
 
                         is ResultState.Loading -> {

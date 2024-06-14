@@ -15,16 +15,16 @@ data class PredictionResponse(
 
 data class PredictData(
     @SerializedName("face_shape")
-    val faceShape: String,
+    val faceShape: String?,
 
     @SerializedName("seasonal_type")
-    val seasonalType: String,
+    val seasonalType: String?,
 
     @SerializedName("face_shape_confidence_score")
-    val faceShapeConfidenceScore: Double,
+    val faceShapeConfidenceScore: Double?,
 
     @SerializedName("seasonal_type_confidence_score")
-    val seasonalTypeConfidenceScore: Double,
+    val seasonalTypeConfidenceScore: Double?,
 
     @SerializedName("created_at")
     val createdAt: String,
