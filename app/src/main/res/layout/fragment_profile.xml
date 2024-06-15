@@ -29,6 +29,7 @@
         android:layout_marginTop="4dp"
         android:backgroundTint="@color/grey"
         android:layout_marginEnd="24dp"
+        android:clickable="false"
         android:hint="@string/user_test"
         android:padding="16dp"
         android:textColor="@color/black1"
@@ -53,6 +54,7 @@
     <Button
         android:id="@+id/etEmail"
         android:padding="16dp"
+        android:clickable="false"
         android:layout_width="0dp"
         android:layout_height="60dp"
         android:layout_marginTop="8dp"

@@ -87,8 +87,7 @@ class ResultActivity : AppCompatActivity() {
         val rvResult: RecyclerView = binding.recyclerView
         val gridLayoutManager = GridLayoutManager(this, 2)
         rvResult.layoutManager = gridLayoutManager
-        rvResult.adapter = ResultImageAdapter(data.response_images)
-
+        rvResult.adapter = ResultImageAdapter(data.response_images.take(6))
         setUpBinding()
         setUpDescription(data.seasonal_type, data.face_shape)
         setUpRecommendedColors(data.seasonal_type)
@@ -135,9 +134,7 @@ class ResultActivity : AppCompatActivity() {
         binding.btnBack.setOnClickListener {
             val fromHistory = intent.getBooleanExtra("FROM_HISTORY", false)
             if (fromHistory) {
-                val intent = Intent(this, HistoryFragment::class.java)
-                intent.removeExtra(ResultActivity.EXTRA_PREDICTION_MODEL)
-                startActivity(intent)
+                finish()
             } else {
                 val intent = Intent(this, MainActivity::class.java)
                 intent.removeExtra(ResultActivity.EXTRA_PREDICTION_MODEL)

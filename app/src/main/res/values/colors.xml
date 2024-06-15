@@ -10,4 +10,8 @@
     <color name="spring">#ECFFED</color>
     <color name="grey">#E8E8E8</color>
     <color name="orange_transparent">#FCA98E</color>
+    <color name="summer_color">#F7C42A</color>
+    <color name="spring_color">#0F645B</color>
+    <color name="autumn_color">#A93D1B</color>
+    <color name="winter_color">#4682B4</color>
 </resources>

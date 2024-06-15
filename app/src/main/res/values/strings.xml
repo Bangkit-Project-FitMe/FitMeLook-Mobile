@@ -20,7 +20,7 @@
     <string name="signupToLogin">Already have an account? Login</string>
     <string name="signupGoogle">Sign up with Google</string>
     <string name="your_web_client_id">171767667369-k52birluj6iujti33hquvps57rgoclce.apps.googleusercontent.com</string>
-  
+
     <!--    Confirmation-->
     <string name="analyze">Analyze</string>
     <string name="retake">Cancel</string>
@@ -32,7 +32,7 @@
 
     <!--    Result-->
     <string name="result">Result</string>
-    <string name="greeting">Hello %1$s</string>
+    <string name="greeting">Hallo %1$s,</string>
     <string name="opening">Here’s your fashion recommendations</string>
     <string name="about">About your result</string>
     <string name="desc">Summer cool and light skin tones exude an ethereal elegance reminiscent of moonlit nights and gentle ocean breezes. Pale porcelain hues with subtle undertones of pink or blue characterize this complexion, giving it a delicate and refined appearance. The Summer skin tone harmonizes beautifully with soft, cool shades like lavender, dusty rose, and icy blues, which complement its natural coolness without overpowering its inherent lightness. In the warmth of summer sunlight, this complexion radiates a serene and luminous glow, reminiscent of the gentle shimmer of moonlight on a tranquil evening.</string>
@@ -110,6 +110,101 @@
         libero vel nunc consequat, quis tincidunt nisl eleifend. Cras bibendum enim a justo luctus
         vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
     </string>
+    <string name="read_more">Read more</string>
+    <string name="summer">Summer</string>
+    <string name="desc_summer">Summer cool and light skin tones exude an ethereal elegance reminiscent of moonlit nights and gentle ocean breezes. Pale porcelain hues with subtle undertones of pink or blue characterize this complexion, giving it a delicate and refined appearance. The Summer skin tone harmonizes beautifully with soft, cool shades like lavender, dusty rose, and icy blues, which complement its natural coolness without overpowering its inherent lightness. In the warmth of summer sunlight, this complexion radiates a serene and luminous glow, reminiscent of the gentle shimmer of moonlight on a tranquil evening.</string>
+    <string name="spring">Spring</string>
+    <string name="large_text">
+        "Material is the metaphor.\n\n"
+
+        "A material metaphor is the unifying theory of a rationalized space and a system of motion."
+        "The material is grounded in tactile reality, inspired by the study of paper and ink, yet "
+        "technologically advanced and open to imagination and magic.\n"
+        "Surfaces and edges of the material provide visual cues that are grounded in reality. The "
+        "use of familiar tactile attributes helps users quickly understand affordances. Yet the "
+        "flexibility of the material creates new affordances that supercede those in the physical "
+        "world, without breaking the rules of physics.\n"
+        "The fundamentals of light, surface, and movement are key to conveying how objects move, "
+        "interact, and exist in space and in relation to each other. Realistic lighting shows "
+        "seams, divides space, and indicates moving parts.\n\n"
+
+        "Bold, graphic, intentional.\n\n"
+
+        "The foundational elements of print based design typography, grids, space, scale, color, "
+        "and use of imagery guide visual treatments. These elements do far more than please the "
+        "eye. They create hierarchy, meaning, and focus. Deliberate color choices, edge to edge "
+        "imagery, large scale typography, and intentional white space create a bold and graphic "
+        "interface that immerse the user in the experience.\n"
+        "An emphasis on user actions makes core functionality immediately apparent and provides "
+        "waypoints for the user.\n\n"
+
+        "Motion provides meaning.\n\n"
+
+        "Motion respects and reinforces the user as the prime mover. Primary user actions are "
+        "inflection points that initiate motion, transforming the whole design.\n"
+        "All action takes place in a single environment. Objects are presented to the user without "
+        "breaking the continuity of experience even as they transform and reorganize.\n"
+        "Motion is meaningful and appropriate, serving to focus attention and maintain continuity. "
+        "Feedback is subtle yet clear. Transitions are efﬁcient yet coherent.\n\n"
+
+        "3D world.\n\n"
+
+        "The material environment is a 3D space, which means all objects have x, y, and z "
+        "dimensions. The z-axis is perpendicularly aligned to the plane of the display, with the "
+        "positive z-axis extending towards the viewer. Every sheet of material occupies a single "
+        "position along the z-axis and has a standard 1dp thickness.\n"
+        "On the web, the z-axis is used for layering and not for perspective. The 3D world is "
+        "emulated by manipulating the y-axis.\n\n"
+
+        "Light and shadow.\n\n"
+
+        "Within the material environment, virtual lights illuminate the scene. Key lights create "
+        "directional shadows, while ambient light creates soft shadows from all angles.\n"
+        "Shadows in the material environment are cast by these two light sources. In Android "
+        "development, shadows occur when light sources are blocked by sheets of material at "
+        "various positions along the z-axis. On the web, shadows are depicted by manipulating the "
+        "y-axis only. The following example shows the card with a height of 6dp.\n\n"
+
+        "Resting elevation.\n\n"
+
+        "All material objects, regardless of size, have a resting elevation, or default elevation "
+        "that does not change. If an object changes elevation, it should return to its resting "
+        "elevation as soon as possible.\n\n"
+
+        "Component elevations.\n\n"
+
+        "The resting elevation for a component type is consistent across apps (e.g., FAB elevation "
+        "does not vary from 6dp in one app to 16dp in another app).\n"
+        "Components may have different resting elevations across platforms, depending on the depth "
+        "of the environment (e.g., TV has a greater depth than mobile or desktop).\n\n"
+
+        "Responsive elevation and dynamic elevation offsets.\n\n"
+
+        "Some component types have responsive elevation, meaning they change elevation in response "
+        "to user input (e.g., normal, focused, and pressed) or system events. These elevation "
+        "changes are consistently implemented using dynamic elevation offsets.\n"
+        "Dynamic elevation offsets are the goal elevation that a component moves towards, relative "
+        "to the component’s resting state. They ensure that elevation changes are consistent "
+        "across actions and component types. For example, all components that lift on press have "
+        "the same elevation change relative to their resting elevation.\n"
+        "Once the input event is completed or cancelled, the component will return to its resting "
+        "elevation.\n\n"
+
+        "Avoiding elevation interference.\n\n"
+
+        "Components with responsive elevations may encounter other components as they move between "
+        "their resting elevations and dynamic elevation offsets. Because material cannot pass "
+        "through other material, components avoid interfering with one another any number of ways, "
+        "whether on a per component basis or using the entire app layout.\n"
+        "On a component level, components can move or be removed before they cause interference. "
+        "For example, a floating action button (FAB) can disappear or move off screen before a "
+        "user picks up a card, or it can move if a snackbar appears.\n"
+        "On the layout level, design your app layout to minimize opportunities for interference. "
+        "For example, position the FAB to one side of stream of a cards so the FAB won’t interfere "
+        "when a user tries to pick up one of cards.\n\n"
+    </string>
+    <string name="autumn">autumn\n</string>
+    <string name="winter">winter</string>
 
     <!--    Desc Result Skin Tone -->
     <string name="summerDesc">Summer type face is characterized by white blonde, blonde, or light brown hair with blue, gray, or brown eyes. This type has skin tones ranging from light to cream with pink undertones, so it matches color palettes such as pink, berry, soft green, bright red and pure white. Then you should avoid dull colors and yellow undertones.</string>
@@ -129,5 +224,130 @@
     <string name="winterInfo">Cool &amp; Deep</string>
     <string name="springInfo">Warm &amp; Light</string>
 
+    <!--    About-->
+    <string name="aboutTitle">About</string>
+    <string name="characteristic">Characteristics:</string>
+    <string name="characteristicDesc">Characteristics desc</string>
+    <string name="suitable">The most suitable (recommended) color</string>
+    <string name="suitableDesc">The most suitable (recommended) color desc</string>
+    <string name="neutral">The most suitable neutral colors:</string>
+    <string name="neutralDesc">The most suitable neutral colors desc</string>
+    <string name="avoid">Colors to avoid:</string>
+    <string name="avoidDesc">Colors to avoid desc</string>
+    <string name="handle">How to handle color mismatches:</string>
+    <string name="handleDesc">How to handle color mismatches desc</string>
+
+    <!--Summer-->
+    <string name="summerOpe">People with Summer skin and eye types always look more radiant when wearing colors that harmonize with their natural tones. The right colors will revive the cheeks, making the appearance look younger and more charming.</string>
+    <string name="summerCharac">
+        "- Eyes: Light blue, blue-gray, gray-green, charcoal blue, even light hazel with soft gray undertones - and they might have slightly darker lines around the iris.\n"
+        "- Hair:  Typically has white-blonde, fair, or light brown colors.\n"
+        "- Skin : Tends to be light to ivory, or possibly medium beige, but always with cool/blue undertones that give a pinkish hue to the face. Your skin is likely to blush easily. Therefore, it's advisable to avoid pure beige foundation and instead choose ones with a light pink undertone.\n"</string>
+    <string name="summerSui">
+        "- Warm, deep, and muted (soft).\n"
+        "- With golden (yellow) undertones.\n"
+        "- Ivory and cream are better than pure white, which is too stark a contrast for your warm skin.\n"
+        "- Natural shades like old gold, orange, rich red, green, mountain blue, and deep sea teal.\n"
+        "- The colors that best match the Autumn Palette include cream, light brown, brown, reddish brown, olive, peach, gold, dark green, light blue, blue-green, ocean blue, orange, brownish gray, light purple, dark purple, and yellowish brown."
+    </string>
+    <string name="summerNeu">
+        "- Camel and coffee brown to dark brown.\n"
+        "- Ginger and terracotta to deep rust.\n"
+        "- Warm navy blue, warm gray, or olive green.\n"
+    </string>
+    <string name="summerAvo">
+        "- Avoid colors with harsh blue undertones, as they are too stark for your skin.\n"
+        "- Avoid overly pale shades that do not match the depth of your skin tone.\n"
+        "- Avoid overly bright and vivid colors that may clash with the softness of your skin tone.\n"
+    </string>
+    <string name="summerHandle">
+        Raspberry, royal blue, and blue-based reds are not the best colors for you. If you choose to wear them, pair them with soft, warm colors around your face to mitigate their effect.\n
+    </string>
+
+    <!--Winter-->
+    <string name="winterOpe">Winter always has a bluish undertone to the skin and a strong clarity to the coloring, characterized by high contrast.</string>
+    <string name="winterCharac">
+        "- Eyes: blue, grey/blue, grey/green, hazel brown and even black/brown.\n"
+        "- Hair: medium to dark brown or even black. Or it's possible to have gray hair and still maintain the strong intensity that supports Winter colors.\n"
+        "- Skin: always Cool tones, but can be very light with a pink tint, or beige to olive/dark brown./n"
+    </string>
+    <string name="winterSui">
+        "- Cool with a bluish hue.\n"
+        "- Palette with Black and White as the highest contrast.\n"
+        "- The clearest, strongest and coolest colors such as royal blue, emerald green, rich true red, strong magenta, to bold hot turquoise\n"
+        "- Pair Skin Tone with the coldest shades of the winter landscape - pure snow white, ice pink, ice blue, ice turquoise, ice aqua.\n"
+        "- Then there is also one yellow that is sharp and strong - although it may not be for everyone.\n"
+        "- So the colors that best suit the Winter Palette include White, Sky Blue, Blue, Gray Blue, Dark Blue, Navy, Light Pink, Dark Pink, Red, Dark Red, Purple, Light Green, Mint Green, Dark Green, Magenta , Light Purple, Dark Purple, Light Yellow, Dark Brown, Black.\n"
+    </string>
+    <string name="winterNeu">
+        "- Black, charcoal and cool silver grey. These colors provide the intensity needed to highlight your color palette.\n"
+        "- Taupe, cocoa brown, and cool linen work especially well for warmer weather.\n"
+        "- Pure white or light ivory will always be your best contrast.\n"
+    </string>
+    <string name="winterAvo">
+        "- Dim or dull colors, unclear pastels - will take away your brightness\n"
+        "- Avoid anything with a gold (warm) undertone, as it will make your skin look yellow.\n"
+        "- Anything cream, yellow/orange, chartreuse, ginger brown, brick red\n"
+    </string>
+    <string name="winterHandle">
+        If you must wear one of these colors, pair it with one of the Winter colors close to the face and create a sharp contrast. A scarf or collar over the jacket, silver or white pearl earrings will introduce a Cool feel.\n
+    </string>
+
+    <!--Autumn-->
+    <string name="autumnOpe">The colors of autumn will enhance and intensify the warm golden undertones and enliven your natural color. Your skin and eyes will appear more defined, and any facial freckles will be camouflaged. Your natural radiance will shine through, and the right makeup will accentuate this even further.</string>
+    <string name="autumnCharac">
+        "- Eyes :  Warm green, golden yellow, deep amber, hazel, or turquoise/teal, often speckled with yellow. There's usually a significant contrast between the colors of the eyebrows, skin, and hair.\n"
+        "- Hair : Ranges from auburn to rich, warm chestnut, sometimes even darker.\n"
+        "- Skin : Warm-toned, from ivory and golden beige to deep copper, with golden undertones. Skin may appear quite light against dark hair and often has freckles.
+    </string>
+    <string name="autumnSui">
+        "- Warm, deep, and muted (soft).\n"
+        "- With golden (yellow) undertones.\n"
+        "- Ivory and cream are better than pure white, which is too stark a contrast for your warm skin.\n"
+        "- Natural shades like old gold, orange, rich red, green, mountain blue, and deep sea teal.\n"
+        "- The colors that best match the Autumn Palette include cream, light brown, brown, reddish brown, olive, peach, gold, dark green, light blue, blue-green, ocean blue, orange, brownish gray, light purple, dark purple, and yellowish brown.\n"
+    </string>
+    <string name="autumnNeu">
+        "- Camel and coffee brown to dark brown.\n"
+        "- Ginger and terracotta to deep rust.\n"
+        "- Warm navy blue, warm gray, or olive green.\n"
+    </string>
+    <string name="autumnAvo">
+        "- Avoid colors with harsh blue undertones, as they are too stark for your skin.\n"
+        "- Avoid overly pale shades that do not match the depth of your skin tone.\n"
+        "- Avoid overly bright and vivid colors that may clash with the softness of your skin tone.\n"
+    </string>
+    <string name="autumnHandle">
+        Raspberry, royal blue, and blue-based reds are not the best colors for you. If you choose to wear them, pair them with soft, warm colors around your face to mitigate their effect.\n
+    </string>
+
+    <!--Spring-->
+    <string name="springOpe">Spring is a season that\'s gentle yet vibrant, featuring a palette of beautiful and fresh colors. When you choose colors that harmonize with your natural essence, your skin and eyes will appear more radiant, and any blemishes will be softened. Your natural glow will shine through, and the right makeup choices will further emphasize your natural beauty.</string>
+    <string name="springCharac">
+        "- Hair : Hair in the Spring type is usually light with clear warm golden tones, often containing elements of pink, gold, or strawberry blonde, although it can sometimes be rich brown. This is a common trait where the golden hue in the hair is often visible from a young age and can remain throughout aging.\n"
+        "- Eyes : Spring type eyes have a brightness and clarity of color that is striking. Eye colors may be clear blue or turquoise, sometimes green or topaz, often with yellow speckles. Dark circles around the iris are also a common feature.\n"
+        "- Skin : Skin color in the Spring type varies from light to golden beige, often with freckles, but always has warm golden or yellow undertones.\n"
+    </string>
+    <string name="springSui">
+        "- Warm, light, and clear (bright).\n"
+        "- Light and bright ivory is more suitable than clinical pure white.\n"
+        "- Clear shades like peach and apricot, periwinkle, and bright blue.\n"
+        "- Bright aqua and bright red are also excellent choices.\n"
+        "- All these clear shades will highlight the brightness of your eyes.\n"
+        "- The colors that best match the Spring Palette include cream, yellow, orange, light purple, purple, dark purple, pastel purple, teal blue, pastel blue, blue-green, aqua blue, light green, dark green, pastel green, gold, light brown, dark brown, pastel brown, light peach.\n"
+    </string>
+    <string name="springNeu">
+        "- Light warm beige.\n"
+        "- Light camel.\n"
+        "- Golden tan to dark brown.\n"
+        "- Warm gray.\n"
+        "- Bright navy blue.\n"
+    </string>
+    <string name="springAvo">
+        "- Avoid cool colors with blue undertones like ice pink, blue, fuchsia, and magenta.\n"
+        "- Avoid deep and heavy colors as they can overshadow the beautiful golden warmth.\n"
+        "- Avoid dull or dim shades because they can mute the brightness of colors.\n"
+    </string>
+    <string name="springHandle">Choosing a color palette that suits the Spring type will enhance and amplify the warmth and brightness, while highlighting the natural colors typical of the Spring type.\n</string>
 
 </resources>

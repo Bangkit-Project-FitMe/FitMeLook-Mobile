@@ -11,6 +11,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
@@ -43,7 +44,7 @@ class HomeFragment : Fragment() {
 
         binding.btnTakePhoto.setOnClickListener {
             if (!allPermissionsGranted()) {
-                requestPermissionLauncher.launch(HomeFragment.REQUIRED_PERMISSION)
+                requestPermissionLauncher.launch(REQUIRED_PERMISSION)
             } else {
                 startCamera()
             }
@@ -51,10 +52,26 @@ class HomeFragment : Fragment() {
 
         binding.btnGallery.setOnClickListener {
             if (!allPermissionsGranted()) {
-                requestPermissionLauncher.launch(HomeFragment.REQUIRED_PERMISSION)
+                requestPermissionLauncher.launch(REQUIRED_PERMISSION)
             } else {
                 startGallery()
             }
+        }
+
+        binding.boxSummer.setOnClickListener {
+            navigateToDetail("Summer")
+        }
+
+        binding.boxSpring.setOnClickListener {
+            navigateToDetail("Spring")
+        }
+
+        binding.boxAutumn.setOnClickListener {
+            navigateToDetail("Autumn")
+        }
+
+        binding.boxWinter.setOnClickListener {
+            navigateToDetail("Winter")
         }
 
         return root
@@ -74,7 +91,7 @@ class HomeFragment : Fragment() {
     private fun allPermissionsGranted() =
         ContextCompat.checkSelfPermission(
             requireContext(),
-            HomeFragment.REQUIRED_PERMISSION
+            REQUIRED_PERMISSION
         ) == PackageManager.PERMISSION_GRANTED
 
     private val launcherIntentCamera = registerForActivityResult(
@@ -114,6 +131,13 @@ class HomeFragment : Fragment() {
         }
         startActivity(intent)
         requireActivity().finish()
+    }
+
+    private fun navigateToDetail(season: String) {
+        val intent = Intent(requireContext(), DetailActivity::class.java).apply {
+            putExtra("SEASON", season)
+        }
+        startActivity(intent)
     }
 
     private val uCropLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
