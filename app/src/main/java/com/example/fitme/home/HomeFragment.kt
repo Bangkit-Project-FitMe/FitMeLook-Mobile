@@ -135,11 +135,12 @@ class HomeFragment : Fragment() {
             setToolbarWidgetColor(ContextCompat.getColor(requireContext(), R.color.white))
         }
         val uCropIntent = UCrop.of(uri, destinationUri)
+            .withAspectRatio(1f, 1f)
             .withOptions(options)
             .getIntent(requireContext())
 
         AlertDialog.Builder(requireContext())
-            .setMessage("Please crop your image square and only on the face")
+            .setMessage("Please crop focus only on the face. Make sure your hair is at least visible!")
             .setPositiveButton("OK") { dialog, _ ->
                 dialog.dismiss()
                 uCropLauncher.launch(uCropIntent)
