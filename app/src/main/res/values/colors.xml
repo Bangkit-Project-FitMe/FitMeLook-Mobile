@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="black">#FF000000</color>
+    <color name="black1">#C6000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="orange">#F9531E</color>
+    <color name="autumn">#FFF1ED</color>
+    <color name="summer">#FFF5E2</color>
+    <color name="winter">#E4F0F9</color>
+    <color name="spring">#ECFFED</color>
+    <color name="grey">#E8E8E8</color>
+    <color name="orange_transparent">#FCA98E</color>
 </resources>

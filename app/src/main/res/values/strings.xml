@@ -1,3 +1,133 @@
 <resources>
-    <string name="app_name">FitMe</string>
+    <string name="app_name">FitMeLook</string>
+
+    <!--    Login-->
+    <string name="login1">Log into</string>
+    <string name="login2">your account</string>
+    <string name="login">Login</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="or">OR</string>
+    <string name="loginGoogle">Login with Google</string>
+    <string name="loginToSignup">Don’t have an account? Sign Up</string>
+    <string name="forgotPw">Forgot Password</string>
+
+    <!--    Sign Up-->
+    <string name="signup1">Create</string>
+    <string name="signup2">your account</string>
+    <string name="signup">Sign up</string>
+    <string name="fullname">Fullname</string>
+    <string name="signupToLogin">Already have an account? Login</string>
+    <string name="signupGoogle">Sign up with Google</string>
+    <string name="your_web_client_id">171767667369-k52birluj6iujti33hquvps57rgoclce.apps.googleusercontent.com</string>
+  
+    <!--    Confirmation-->
+    <string name="analyze">Analyze</string>
+    <string name="retake">Cancel</string>
+
+    <!--    Process-->
+    <string name="great">You look great!</string>
+    <string name="wait">Wait a second...</string>
+    <string name="analyzing">We’re analyzing your face</string>
+
+    <!--    Result-->
+    <string name="result">Result</string>
+    <string name="greeting">Hello %1$s</string>
+    <string name="opening">Here’s your fashion recommendations</string>
+    <string name="about">About your result</string>
+    <string name="desc">Summer cool and light skin tones exude an ethereal elegance reminiscent of moonlit nights and gentle ocean breezes. Pale porcelain hues with subtle undertones of pink or blue characterize this complexion, giving it a delicate and refined appearance. The Summer skin tone harmonizes beautifully with soft, cool shades like lavender, dusty rose, and icy blues, which complement its natural coolness without overpowering its inherent lightness. In the warmth of summer sunlight, this complexion radiates a serene and luminous glow, reminiscent of the gentle shimmer of moonlight on a tranquil evening.</string>
+    <string name="recommended">Recommended Colors</string>
+    <string name="avoided">Avoided Colors</string>
+    <string name="forYou">For You</string>
+    <string name="shape">Shape</string>
+    <string name="face">Oval</string>
+    <string name="season">Summer</string>
+    <string name="detail">Cool &amp; Light</string>
+
+    <!--    Home-->
+    <string name="user_test">loading...</string>
+    <string name="usertest_gmail_com">loading...</string>
+    <string name="user_name">loading...</string>
+    <string name="home">Home</string>
+    <string name="profile">Profile</string>
+    <string name="title_activity_navbar">Navbar</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="menu_home">Home</string>
+    <string name="menu_profile">Profile</string>
+    <string name="menu_history">History</string>
+    <string name="go_to_navbaractivity">go to navbar\n</string>
+    <string name="history">History</string>
+    <string name="date">Date</string>
+    <string name="today">Today</string>
+    <string name="see_all">see all</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="a_photo_of_you">A photo of you</string>
+    <string name="please_make_sure_your_photo_clearly_shows_your_face">Please make sure your photo clearly shows your face</string>
+    <string name="about_skintone">About Skintone</string>
+
+    <string name="lorem_ipsum">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris
+        volutpat, dolor id interdum ullamcorper, risus dolor egestas lectus, sit amet mattis purus
+        dui nec risus. Maecenas non sodales nisi, vel dictum dolor. Class aptent taciti sociosqu ad
+        litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse blandit eleifend
+        diam, vel rutrum tellus vulputate quis. Aliquam eget libero aliquet, imperdiet nisl a,
+        ornare ex. Sed rhoncus est ut libero porta lobortis. Fusce in dictum tellus.\n\n
+        Suspendisse interdum ornare ante. Aliquam nec cursus lorem. Morbi id magna felis. Vivamus
+        egestas, est a condimentum egestas, turpis nisl iaculis ipsum, in dictum tellus dolor sed
+        neque. Morbi tellus erat, dapibus ut sem a, iaculis tincidunt dui. Interdum et malesuada
+        fames ac ante ipsum primis in faucibus. Curabitur et eros porttitor, ultricies urna vitae,
+        molestie nibh. Phasellus at commodo eros, non aliquet metus. Sed maximus nisl nec dolor
+        bibendum, vel congue leo egestas.\n\n
+        Sed interdum tortor nibh, in sagittis risus mollis quis. Curabitur mi odio, condimentum sit
+        amet auctor at, mollis non turpis. Nullam pretium libero vestibulum, finibus orci vel,
+        molestie quam. Fusce blandit tincidunt nulla, quis sollicitudin libero facilisis et. Integer
+        interdum nunc ligula, et fermentum metus hendrerit id. Vestibulum lectus felis, dictum at
+        lacinia sit amet, tristique id quam. Cras eu consequat dui. Suspendisse sodales nunc ligula,
+        in lobortis sem porta sed. Integer id ultrices magna, in luctus elit. Sed a pellentesque
+        est.\n\n
+        Aenean nunc velit, lacinia sed dolor sed, ultrices viverra nulla. Etiam a venenatis nibh.
+        Morbi laoreet, tortor sed facilisis varius, nibh orci rhoncus nulla, id elementum leo dui
+        non lorem. Nam mollis ipsum quis auctor varius. Quisque elementum eu libero sed commodo. In
+        eros nisl, imperdiet vel imperdiet et, scelerisque a mauris. Pellentesque varius ex nunc,
+        quis imperdiet eros placerat ac. Duis finibus orci et est auctor tincidunt. Sed non viverra
+        ipsum. Nunc quis augue egestas, cursus lorem at, molestie sem. Morbi a consectetur ipsum, a
+        placerat diam. Etiam vulputate dignissim convallis. Integer faucibus mauris sit amet finibus
+        convallis.\n\n
+        Phasellus in aliquet mi. Pellentesque habitant morbi tristique senectus et netus et
+        malesuada fames ac turpis egestas. In volutpat arcu ut felis sagittis, in finibus massa
+        gravida. Pellentesque id tellus orci. Integer dictum, lorem sed efficitur ullamcorper,
+        libero justo consectetur ipsum, in mollis nisl ex sed nisl. Donec maximus ullamcorper
+        sodales. Praesent bibendum rhoncus tellus nec feugiat. In a ornare nulla. Donec rhoncus
+        libero vel nunc consequat, quis tincidunt nisl eleifend. Cras bibendum enim a justo luctus
+        vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
+    </string>
+
+    <!--    Desc Result Skin Tone -->
+    <string name="summerDesc">Summer type face is characterized by white blonde, blonde, or light brown hair with blue, gray, or brown eyes. This type has skin tones ranging from light to cream with pink undertones, so it matches color palettes such as pink, berry, soft green, bright red and pure white. Then you should avoid dull colors and yellow undertones.</string>
+    <string name="autumnDesc">Autumn type face is characterized by copper blonde and strawberry blonde hair with green or brown eyes. This type has warm skin tones with ivory, golden cream to copper, so it matches color palettes such as cream, dark gold, orange, red and turquoise. Then you should avoid colors with blue undertones, colors that are too pale and colors that are too bright.</string>
+    <string name="winterDesc">The winter type face is characterized by black, light brown and dark brown hair with black, blue, gray, green to hazel brown eyes. This type has a cool skin tone with a blue undertone so it matches color palettes such as Royal Blue, Emerald Green, Magenta, True Red and monochromatic colors. Then you should avoid dark, pastel, gold, cream and yellowish colors.</string>
+    <string name="springDesc">The spring type face is characterized by light yellow, golden blonde and dark brown hair with blue, green, gray and reddish brown eyes. This type has a warm skin tone with a golden cream color, so it matches color palettes such as peach, light peach, bright aqua, and bright red. Then you should avoid cool colors with blue undertones and colors that are too dark.</string>
+
+    <!--    Desc Result Face Type -->
+    <string name="oblongDesc">For oblong face shapes with the same forehead, cheeks and jawline, having an ideal neckline such as Boat, Straight Neck, Off Shoulder, Peter Pan Collar and Puritan Collar, thus creating a horizontal line that gives the illusion of width that can balance the shape of the face the long one.</string>
+    <string name="heartDesc">For heart face shapes with a pointed chin and wide forehead, having an ideal neckline such as Halter, V, One Shoulder, Square and Boat Neck helps draw attention to a wide forehead by balancing a pointed chin and creating visual balance.</string>
+    <string name="roundDesc">For a round face shape with an arch on both sides of the jaw, a round chin and wide cheekbones, have an ideal neckline such as V, Off Shoulder, Straight neck and Shirt Collar, so that it can give the illusion of width at the top of the body and lengthen the shape of the face.</string>
+    <string name="squareDesc">For square face shapes with straight sides and no curvature of the jaw, have an ideal neckline such as Round, Turtle, Strapless, Heart neck, and Rib collar, thus providing a curved effect and balancing a strong jawline.</string>
+
+    <!--    Desc Result 4 Seasonal Color-->
+    <string name="summerInfo">Cool &amp; Light</string>
+    <string name="autumnInfo">Warm &amp; Deep</string>
+    <string name="winterInfo">Cool &amp; Deep</string>
+    <string name="springInfo">Warm &amp; Light</string>
+
+
 </resources>
