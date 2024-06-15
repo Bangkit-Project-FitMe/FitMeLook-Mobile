@@ -1,34 +1,9 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-
-    <style name="Base.Theme.FitMe" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <item name="colorPrimary">@color/white</item>
-        <item name="colorPrimaryDark">@color/black</item>
-    </style>
-
-    <style name="Theme.FitMe.NoActionBar" parent="Base.Theme.FitMe">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-    </style>
-
-    <style name="Theme.FitMe.ActionBar" parent="Base.Theme.FitMe">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-    </style>
-
-    <style name="Base.Theme.FitMe.NoActionBar">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-    </style>
-
-    <style name="Base.Theme.FitMe.AppBarOverlay" parent="ThemeOverlay.AppCompat.Light" />
-
-    <style name="Base.Theme.FitMe.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" >
-        <item name="colorPrimary">@color/white</item>
-    </style>
     <!-- Base application theme. -->
-    <style name="Base.Base.Theme.FitMe" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="Base.Theme.FitMe" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
          <item name="colorPrimary">@color/orange</item>
-        <item name="android:windowBackground">@color/white</item>
     </style>
+
+    <style name="Theme.FitMe" parent="Base.Theme.FitMe" />
 </resources>
