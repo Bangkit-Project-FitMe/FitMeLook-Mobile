@@ -138,11 +138,11 @@ class HomeFragment : Fragment() {
             .withOptions(options)
             .getIntent(requireContext())
 
-        uCropLauncher.launch(uCropIntent)
         AlertDialog.Builder(requireContext())
             .setMessage("Please crop your image square and only on the face")
             .setPositiveButton("OK") { dialog, _ ->
                 dialog.dismiss()
+                uCropLauncher.launch(uCropIntent)
             }
             .setCancelable(false)
             .show()
