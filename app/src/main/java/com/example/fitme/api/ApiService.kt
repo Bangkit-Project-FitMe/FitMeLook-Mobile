@@ -1,6 +1,7 @@
 package com.example.fitme.api
 
 
+import com.example.fitme.api.response.DetailHistoryResponse
 import com.example.fitme.api.response.ListHistoryData
 import com.example.fitme.api.response.ListHistoryResponse
 import okhttp3.ResponseBody
@@ -42,4 +43,10 @@ interface ApiService{
         @Path("userID") userID: String,
         @Part image: MultipartBody.Part
     ): PredictionResponse
+
+    @GET("users/{user_id}/predictions/{prediction_id}")
+    suspend fun getDetailHistory(
+        @Path("user_id") userId: String,
+        @Path("prediction_id") predictionId: String
+    ): DetailHistoryResponse
 }

@@ -7,6 +7,7 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -17,16 +18,23 @@ import com.example.fitme.R
 import com.example.fitme.ViewModelFactory
 import com.example.fitme.adapter.ColorPaletteAdapter
 import com.example.fitme.adapter.ResultImageAdapter
+import com.example.fitme.api.ApiConfig
+import com.example.fitme.api.ApiService
+import com.example.fitme.api.response.DetailHistoryData
 import com.example.fitme.databinding.ActivityResultBinding
 import com.example.fitme.home.MainActivity
 import com.example.fitme.login.LoginViewModel
 import com.example.fitme.prediction.model.PredictionModel
+import kotlinx.coroutines.launch
 
 class ResultActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityResultBinding
     private lateinit var skinTone: String
     private lateinit var faceShape: String
+    private lateinit var userId: String
+    private lateinit var predictionId: String
+    private lateinit var apiService: ApiService
     private val viewModel by viewModels<PredictionViewModel> {
         ViewModelFactory.getInstance(this)
     }
@@ -36,40 +44,94 @@ class ResultActivity : AppCompatActivity() {
         binding = ActivityResultBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        apiService = ApiConfig.getApiService()
+
+        val fromHistory = intent.getBooleanExtra("FROM_HISTORY", false)
+
         val predictionModel = intent.getParcelableExtra<PredictionModel>(EXTRA_PREDICTION_MODEL)
 
-        predictionModel?.let { model ->
-            skinTone = model.seasonalType
-            faceShape = model.faceShape
+        if (fromHistory) {
+            userId = intent.getStringExtra("USER_ID") ?: return
+            predictionId = intent.getStringExtra("PREDICTION_ID") ?: return
+            fetchDetailHistory() }
+        else {
+            predictionModel?.let { model ->
+                skinTone = model.seasonalType
+                faceShape = model.faceShape
+                displayPredictionResult(model)
 
-            setUpBinding()
-            setUpDescription()
-            setUpRecommendedColors()
-            setUpAvoidedColors()
+                setUpBinding()
+                setUpDescription()
+                setUpRecommendedColors()
+                setUpAvoidedColors()
 
-            val rvResult: RecyclerView = binding.recyclerView
-            val gridlayoutManager = GridLayoutManager(this, 2)
-            rvResult.layoutManager = gridlayoutManager
-            val imageList = predictionModel.responseImages.take(6)
-            rvResult.adapter = ResultImageAdapter(imageList)
+                val rvResult: RecyclerView = binding.recyclerView
+                val gridlayoutManager = GridLayoutManager(this, 2)
+                rvResult.layoutManager = gridlayoutManager
+                val imageList = predictionModel.responseImages.take(6)
+                rvResult.adapter = ResultImageAdapter(imageList)
 
-            viewModel.getSession().observe(this) { session ->
-                session?.let {
-                    val fullName = session.fullName.split(" ").firstOrNull() ?: ""
-                    val greetingText = getString(R.string.greeting, fullName)
-                    binding.textGreeting.text = greetingText
+                viewModel.getSession().observe(this) { session ->
+                    session?.let {
+                        val fullName = session.fullName.split(" ").firstOrNull() ?: ""
+                        val greetingText = getString(R.string.greeting, fullName)
+                        binding.textGreeting.text = greetingText
+                    }
                 }
+
+                Glide.with(this)
+                    .load(predictionModel.imageUrl)
+                    .transform(CircleCrop())
+                    .into(binding.imageView)
+
+            } ?: run {
+                Toast.makeText(this, "Prediction model is null", Toast.LENGTH_SHORT).show()
+                finish()
             }
-
-            Glide.with(this)
-                .load(predictionModel.imageUrl)
-                .transform(CircleCrop())
-                .into(binding.imageView)
-
-        } ?: run {
-            Toast.makeText(this, "Prediction model is null", Toast.LENGTH_SHORT).show()
-            finish()
         }
+    }
+
+    private fun fetchDetailHistory() {
+        lifecycleScope.launch {
+            try {
+                val response = apiService.getDetailHistory(userId, predictionId)
+                val detailHistoryData = response.data
+                displayDetailHistory(detailHistoryData)
+            } catch (e: Exception) {
+                Log.e("ResultActivity", "Failed to fetch detail history", e)
+                Toast.makeText(this@ResultActivity, "Failed to load history data", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+    private fun displayDetailHistory(data: DetailHistoryData) {
+        binding.textSeason.text = data.seasonal_type
+        binding.textFace.text = data.face_shape
+
+        Glide.with(this)
+            .load(data.image_url)
+            .transform(CircleCrop())
+            .into(binding.imageView)
+
+        val rvResult: RecyclerView = binding.recyclerView
+        val gridLayoutManager = GridLayoutManager(this, 2)
+        rvResult.layoutManager = gridLayoutManager
+        rvResult.adapter = ResultImageAdapter(data.response_images)
+    }
+
+    private fun displayPredictionResult(model: PredictionModel) {
+        binding.textSeason.text = model.seasonalType
+        binding.textFace.text = model.faceShape
+
+        Glide.with(this)
+            .load(model.imageUrl)
+            .transform(CircleCrop())
+            .into(binding.imageView)
+
+        val rvResult: RecyclerView = binding.recyclerView
+        val gridLayoutManager = GridLayoutManager(this, 2)
+        rvResult.layoutManager = gridLayoutManager
+        rvResult.adapter = ResultImageAdapter(model.responseImages.take(6))
     }
 
     private fun setUpBinding() {
