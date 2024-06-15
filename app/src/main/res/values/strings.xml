@@ -34,7 +34,7 @@
     <string name="result">Result</string>
     <string name="greeting">Hello %1$s</string>
     <string name="opening">Here’s your fashion recommendations</string>
-    <string name="about">About your skin tone</string>
+    <string name="about">About your result</string>
     <string name="desc">Summer cool and light skin tones exude an ethereal elegance reminiscent of moonlit nights and gentle ocean breezes. Pale porcelain hues with subtle undertones of pink or blue characterize this complexion, giving it a delicate and refined appearance. The Summer skin tone harmonizes beautifully with soft, cool shades like lavender, dusty rose, and icy blues, which complement its natural coolness without overpowering its inherent lightness. In the warmth of summer sunlight, this complexion radiates a serene and luminous glow, reminiscent of the gentle shimmer of moonlight on a tranquil evening.</string>
     <string name="recommended">Recommended Colors</string>
     <string name="avoided">Avoided Colors</string>
@@ -111,13 +111,19 @@
         vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
     </string>
 
-    <!--    Desc Temp-->
-    <string name="summerDesc">Summer cool and light skin tones exude an ethereal elegance reminiscent of moonlit nights and gentle ocean breezes. Pale porcelain hues with subtle undertones of pink or blue characterize this complexion, giving it a delicate and refined appearance. The Summer skin tone harmonizes beautifully with soft, cool shades like lavender, dusty rose, and icy blues, which complement its natural coolness without overpowering its inherent lightness. In the warmth of summer sunlight, this complexion radiates a serene and luminous glow, reminiscent of the gentle shimmer of moonlight on a tranquil evening.</string>
-    <string name="autumnDesc">Autumn cool and light skin tones exude an ethereal elegance reminiscent of moonlit nights and gentle ocean breezes. Pale porcelain hues with subtle undertones of pink or blue characterize this complexion, giving it a delicate and refined appearance. The Summer skin tone harmonizes beautifully with soft, cool shades like lavender, dusty rose, and icy blues, which complement its natural coolness without overpowering its inherent lightness. In the warmth of summer sunlight, this complexion radiates a serene and luminous glow, reminiscent of the gentle shimmer of moonlight on a tranquil evening.</string>
-    <string name="winterDesc">Winter cool and light skin tones exude an ethereal elegance reminiscent of moonlit nights and gentle ocean breezes. Pale porcelain hues with subtle undertones of pink or blue characterize this complexion, giving it a delicate and refined appearance. The Summer skin tone harmonizes beautifully with soft, cool shades like lavender, dusty rose, and icy blues, which complement its natural coolness without overpowering its inherent lightness. In the warmth of summer sunlight, this complexion radiates a serene and luminous glow, reminiscent of the gentle shimmer of moonlight on a tranquil evening.</string>
-    <string name="springDesc">Spring cool and light skin tones exude an ethereal elegance reminiscent of moonlit nights and gentle ocean breezes. Pale porcelain hues with subtle undertones of pink or blue characterize this complexion, giving it a delicate and refined appearance. The Summer skin tone harmonizes beautifully with soft, cool shades like lavender, dusty rose, and icy blues, which complement its natural coolness without overpowering its inherent lightness. In the warmth of summer sunlight, this complexion radiates a serene and luminous glow, reminiscent of the gentle shimmer of moonlight on a tranquil evening.</string>
+    <!--    Desc Result Skin Tone -->
+    <string name="summerDesc">Summer type face is characterized by white blonde, blonde, or light brown hair with blue, gray, or brown eyes. This type has skin tones ranging from light to cream with pink undertones, so it matches color palettes such as pink, berry, soft green, bright red and pure white. Then you should avoid dull colors and yellow undertones.</string>
+    <string name="autumnDesc">Autumn type face is characterized by copper blonde and strawberry blonde hair with green or brown eyes. This type has warm skin tones with ivory, golden cream to copper, so it matches color palettes such as cream, dark gold, orange, red and turquoise. Then you should avoid colors with blue undertones, colors that are too pale and colors that are too bright.</string>
+    <string name="winterDesc">The winter type face is characterized by black, light brown and dark brown hair with black, blue, gray, green to hazel brown eyes. This type has a cool skin tone with a blue undertone so it matches color palettes such as Royal Blue, Emerald Green, Magenta, True Red and monochromatic colors. Then you should avoid dark, pastel, gold, cream and yellowish colors.</string>
+    <string name="springDesc">The spring type face is characterized by light yellow, golden blonde and dark brown hair with blue, green, gray and reddish brown eyes. This type has a warm skin tone with a golden cream color, so it matches color palettes such as peach, light peach, bright aqua, and bright red. Then you should avoid cool colors with blue undertones and colors that are too dark.</string>
 
-    <!--    Desc 4 Seasonal Color-->
+    <!--    Desc Result Face Type -->
+    <string name="oblongDesc">For oblong face shapes with the same forehead, cheeks and jawline, having an ideal neckline such as Boat, Straight Neck, Off Shoulder, Peter Pan Collar and Puritan Collar, thus creating a horizontal line that gives the illusion of width that can balance the shape of the face the long one.</string>
+    <string name="heartDesc">For heart face shapes with a pointed chin and wide forehead, having an ideal neckline such as Halter, V, One Shoulder, Square and Boat Neck helps draw attention to a wide forehead by balancing a pointed chin and creating visual balance.</string>
+    <string name="roundDesc">For a round face shape with an arch on both sides of the jaw, a round chin and wide cheekbones, have an ideal neckline such as V, Off Shoulder, Straight neck and Shirt Collar, so that it can give the illusion of width at the top of the body and lengthen the shape of the face.</string>
+    <string name="squareDesc">For square face shapes with straight sides and no curvature of the jaw, have an ideal neckline such as Round, Turtle, Strapless, Heart neck, and Rib collar, thus providing a curved effect and balancing a strong jawline.</string>
+
+    <!--    Desc Result 4 Seasonal Color-->
     <string name="summerInfo">Cool &amp; Light</string>
     <string name="autumnInfo">Warm &amp; Deep</string>
     <string name="winterInfo">Cool &amp; Deep</string>
