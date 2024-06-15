@@ -1,4 +1,4 @@
-package com.example.fitme.home.about.detail
+package com.example.fitme.home
 
 import android.os.Bundle
 import android.widget.ImageView

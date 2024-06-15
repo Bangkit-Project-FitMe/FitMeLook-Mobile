@@ -9,19 +9,15 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.example.fitme.adapter.ItemImageAdapter
 import com.example.fitme.databinding.FragmentHomeBinding
-import com.example.fitme.home.about.AboutActivity
 import com.example.fitme.prediction.ConfirmationActivity
-import com.google.firebase.auth.FirebaseAuth
 
 class HomeFragment : Fragment() {
 
@@ -58,9 +54,20 @@ class HomeFragment : Fragment() {
             }
         }
 
-        binding.btnAboutSkintones.setOnClickListener {
-            val intent = Intent(requireContext(), AboutActivity::class.java)
-            startActivity(intent)
+        binding.boxSummer.setOnClickListener {
+            navigateToDetail("Summer")
+        }
+
+        binding.boxSpring.setOnClickListener {
+            navigateToDetail("Spring")
+        }
+
+        binding.boxAutumn.setOnClickListener {
+            navigateToDetail("Autumn")
+        }
+
+        binding.boxWinter.setOnClickListener {
+            navigateToDetail("Winter")
         }
 
         return root
@@ -119,6 +126,13 @@ class HomeFragment : Fragment() {
         }
         startActivity(intent)
         requireActivity().finish()
+    }
+
+    private fun navigateToDetail(season: String) {
+        val intent = Intent(requireContext(), DetailActivity::class.java).apply {
+            putExtra("SEASON", season)
+        }
+        startActivity(intent)
     }
 
     override fun onDestroyView() {

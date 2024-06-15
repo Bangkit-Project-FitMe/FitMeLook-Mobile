@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
     android:background="@color/white"
+    android:padding="16dp"
     tools:context=".home.HomeFragment">
 
     <ProgressBar
@@ -94,24 +94,23 @@
         android:id="@+id/boxWinter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+        android:layout_marginEnd="4dp"
         android:background="@drawable/boxwinter"
+        android:clickable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/btnGallery"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/boxAutumn"
         app:layout_constraintTop_toBottomOf="@+id/boxSpring"
-        app:layout_constraintVertical_bias="0.04" />
+        app:layout_constraintVertical_bias="0.344" />
 
     <ImageView
         android:id="@+id/boxSpring"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="96dp"
+        android:layout_marginEnd="4dp"
         android:background="@drawable/boxspring"
+        android:clickable="true"
         app:layout_constraintEnd_toEndOf="@+id/btnGallery"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/boxSummer"
         app:layout_constraintTop_toBottomOf="@+id/btnGallery" />
 
     <ImageView
@@ -120,17 +119,19 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:background="@drawable/boxautumn"
+        android:clickable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/btnGallery"
         app:layout_constraintTop_toBottomOf="@+id/boxSummer"
-        app:layout_constraintVertical_bias="0.031" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
         android:id="@+id/boxSummer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="96dp"
         android:background="@drawable/boxsummer"
+        android:clickable="true"
         app:layout_constraintStart_toStartOf="@+id/btnGallery"
         app:layout_constraintTop_toBottomOf="@+id/btnGallery" />
 
