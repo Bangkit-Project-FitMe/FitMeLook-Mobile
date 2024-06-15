@@ -7,6 +7,7 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -17,16 +18,22 @@ import com.example.fitme.R
 import com.example.fitme.ViewModelFactory
 import com.example.fitme.adapter.ColorPaletteAdapter
 import com.example.fitme.adapter.ResultImageAdapter
+import com.example.fitme.api.ApiConfig
+import com.example.fitme.api.ApiService
+import com.example.fitme.api.response.DetailHistoryData
 import com.example.fitme.databinding.ActivityResultBinding
 import com.example.fitme.home.MainActivity
+import com.example.fitme.home.history.HistoryFragment
 import com.example.fitme.login.LoginViewModel
 import com.example.fitme.prediction.model.PredictionModel
+import kotlinx.coroutines.launch
 
 class ResultActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityResultBinding
-    private lateinit var skinTone: String
-    private lateinit var faceShape: String
+    private lateinit var userId: String
+    private lateinit var predictionId: String
+    private lateinit var apiService: ApiService
     private val viewModel by viewModels<PredictionViewModel> {
         ViewModelFactory.getInstance(this)
     }
@@ -36,52 +43,112 @@ class ResultActivity : AppCompatActivity() {
         binding = ActivityResultBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val predictionModel = intent.getParcelableExtra<PredictionModel>(EXTRA_PREDICTION_MODEL)
+        apiService = ApiConfig.getApiService()
 
-        predictionModel?.let { model ->
-            skinTone = model.seasonalType
-            faceShape = model.faceShape
+        val fromHistory = intent.getBooleanExtra("FROM_HISTORY", false)
 
-            setUpBinding()
-            setUpDescription()
-            setUpRecommendedColors()
-            setUpAvoidedColors()
-
-            val rvResult: RecyclerView = binding.recyclerView
-            val gridlayoutManager = GridLayoutManager(this, 2)
-            rvResult.layoutManager = gridlayoutManager
-            val imageList = predictionModel.responseImages.take(6)
-            rvResult.adapter = ResultImageAdapter(imageList)
-
-            viewModel.getSession().observe(this) { session ->
-                session?.let {
-                    val fullName = session.fullName.split(" ").firstOrNull() ?: ""
-                    val greetingText = getString(R.string.greeting, fullName)
-                    binding.textGreeting.text = greetingText
-                }
+        if (fromHistory) {
+            userId = intent.getStringExtra("USER_ID") ?: return
+            predictionId = intent.getStringExtra("PREDICTION_ID") ?: return
+            fetchDetailHistory()
+        } else {
+            val predictionModel = intent.getParcelableExtra<PredictionModel>(EXTRA_PREDICTION_MODEL)
+            predictionModel?.let { model ->
+                displayPredictionResult(model)
+            } ?: run {
+                Toast.makeText(this, "Prediction model is null", Toast.LENGTH_SHORT).show()
+                finish()
             }
+        }
+    }
 
-            Glide.with(this)
-                .load(predictionModel.imageUrl)
-                .transform(CircleCrop())
-                .into(binding.imageView)
+    private fun fetchDetailHistory() {
+        lifecycleScope.launch {
+            try {
+                val response = apiService.getDetailHistory(userId, predictionId)
+                val detailHistoryData = response.data
+                displayDetailHistory(detailHistoryData)
+            } catch (e: Exception) {
+                Log.e("ResultActivity", "Failed to fetch detail history", e)
+                Toast.makeText(this@ResultActivity, "Failed to load history data", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
 
-        } ?: run {
-            Toast.makeText(this, "Prediction model is null", Toast.LENGTH_SHORT).show()
-            finish()
+    private fun displayDetailHistory(data: DetailHistoryData) {
+        binding.textSeason.text = data.seasonal_type
+        binding.textFace.text = data.face_shape
+
+        Glide.with(this)
+            .load(data.image_url)
+            .transform(CircleCrop())
+            .into(binding.imageView)
+
+        val rvResult: RecyclerView = binding.recyclerView
+        val gridLayoutManager = GridLayoutManager(this, 2)
+        rvResult.layoutManager = gridLayoutManager
+        rvResult.adapter = ResultImageAdapter(data.response_images)
+
+        setUpBinding()
+        setUpDescription(data.seasonal_type, data.face_shape)
+        setUpRecommendedColors(data.seasonal_type)
+        setUpAvoidedColors(data.seasonal_type)
+
+        viewModel.getSession().observe(this) { session ->
+            session?.let {
+                val fullName = session.fullName.split(" ").firstOrNull() ?: ""
+                val greetingText = getString(R.string.greeting, fullName)
+                binding.textGreeting.text = greetingText
+            }
+        }
+    }
+
+    private fun displayPredictionResult(model: PredictionModel) {
+        binding.textSeason.text = model.seasonalType
+        binding.textFace.text = model.faceShape
+
+        Glide.with(this)
+            .load(model.imageUrl)
+            .transform(CircleCrop())
+            .into(binding.imageView)
+
+        val rvResult: RecyclerView = binding.recyclerView
+        val gridLayoutManager = GridLayoutManager(this, 2)
+        rvResult.layoutManager = gridLayoutManager
+        rvResult.adapter = ResultImageAdapter(model.responseImages.take(6))
+
+        setUpBinding()
+        setUpDescription(model.seasonalType, model.faceShape)
+        setUpRecommendedColors(model.seasonalType)
+        setUpAvoidedColors(model.seasonalType)
+
+        viewModel.getSession().observe(this) { session ->
+            session?.let {
+                val fullName = session.fullName.split(" ").firstOrNull() ?: ""
+                val greetingText = getString(R.string.greeting, fullName)
+                binding.textGreeting.text = greetingText
+            }
         }
     }
 
     private fun setUpBinding() {
         binding.btnBack.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
-            intent.removeExtra(ResultActivity.EXTRA_PREDICTION_MODEL)
-            startActivity(intent)
+            val fromHistory = intent.getBooleanExtra("FROM_HISTORY", false)
+            if (fromHistory) {
+                val intent = Intent(this, HistoryFragment::class.java)
+                intent.removeExtra(ResultActivity.EXTRA_PREDICTION_MODEL)
+                startActivity(intent)
+            } else {
+                val intent = Intent(this, MainActivity::class.java)
+                intent.removeExtra(ResultActivity.EXTRA_PREDICTION_MODEL)
+                startActivity(intent)
+            }
             finish()
         }
     }
 
-    private fun setUpDescription() {
+
+    private fun setUpDescription(skinTone: String, faceShape: String) {
         binding.textSeason.text = skinTone
         binding.textFace.text = faceShape
 
@@ -138,7 +205,7 @@ class ResultActivity : AppCompatActivity() {
             .into(binding.imageIcon)
     }
 
-    private fun setUpRecommendedColors() {
+    private fun setUpRecommendedColors(skinTone: String) {
         val layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
 
         val rvRecommendedColor: RecyclerView = binding.rvRecommended
@@ -154,7 +221,7 @@ class ResultActivity : AppCompatActivity() {
         rvRecommendedColor.adapter = ColorPaletteAdapter(recommendedColorList)
     }
 
-    private fun setUpAvoidedColors() {
+    private fun setUpAvoidedColors(skinTone: String) {
         val layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
 
         val rvAvoidedColor: RecyclerView = binding.rvAvoided
