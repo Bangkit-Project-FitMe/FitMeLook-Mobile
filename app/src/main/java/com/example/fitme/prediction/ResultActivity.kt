@@ -87,8 +87,7 @@ class ResultActivity : AppCompatActivity() {
         val rvResult: RecyclerView = binding.recyclerView
         val gridLayoutManager = GridLayoutManager(this, 2)
         rvResult.layoutManager = gridLayoutManager
-        rvResult.adapter = ResultImageAdapter(data.response_images)
-
+        rvResult.adapter = ResultImageAdapter(data.response_images.take(6))
         setUpBinding()
         setUpDescription(data.seasonal_type, data.face_shape)
         setUpRecommendedColors(data.seasonal_type)

@@ -66,7 +66,7 @@ class ItemDayAdapter(private val dayList: List<ListHistoryData>, private val ite
 
         holder.tvDay.text = "$formattedDate | ${dayItem.seasonal_type}"
         holder.rvImages.layoutManager = LinearLayoutManager(holder.rvImages.context, LinearLayoutManager.HORIZONTAL, false)
-        holder.rvImages.adapter = ItemImageAdapter(dayItem.response_images)
+        holder.rvImages.adapter = ItemImageAdapter(dayItem.response_images.take(6))
 
         holder.cardView.setOnClickListener {
             itemClickListener.onItemClick(dayItem)
