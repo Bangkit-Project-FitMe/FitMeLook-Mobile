@@ -224,5 +224,49 @@
     <string name="winterInfo">Cool &amp; Deep</string>
     <string name="springInfo">Warm &amp; Light</string>
 
+    <!--    About-->
+    <string name="aboutTitle">About</string>
+    <string name="characteristic">Characteristics:</string>
+    <string name="characteristicDesc">Characteristics desc</string>
+    <string name="suitable">The most suitable (recommended) color</string>
+    <string name="suitableDesc">The most suitable (recommended) color desc</string>
+    <string name="neutral">The most suitable neutral colors:</string>
+    <string name="neutralDesc">The most suitable neutral colors desc</string>
+    <string name="avoid">Colors to avoid:</string>
+    <string name="avoidDesc">Colors to avoid desc</string>
+    <string name="handle">How to handle color mismatches:</string>
+    <string name="handleDesc">How to handle color mismatches desc</string>
+
+    <!--Summer-->
+    <string name="summerOpe">Summer Opening</string>
+    <string name="summerCharac">Summer Characteristics</string>
+    <string name="summerSui">Summer Suitable</string>
+    <string name="summerNeu">Summer Neutral</string>
+    <string name="summerAvo">Summer Avoided</string>
+    <string name="summerHandle">Summer Handle</string>
+
+    <!--Winter-->
+    <string name="winterOpe">Winter Opening</string>
+    <string name="winterCharac">Winter Characteristics</string>
+    <string name="winterSui">Winter Suitable</string>
+    <string name="winterNeu">Winter Neutral</string>
+    <string name="winterAvo">Winter Avoided</string>
+    <string name="winterHandle">Winter Handle</string>
+
+    <!--Autumn-->
+    <string name="autumnOpe">Autumn Opening</string>
+    <string name="autumnCharac">Autumn Characteristics</string>
+    <string name="autumnSui">Autumn Suitable</string>
+    <string name="autumnNeu">Autumn Neutral</string>
+    <string name="autumnAvo">Autumn Avoided</string>
+    <string name="autumnHandle">Autumn Handle</string>
+
+    <!--Spring-->
+    <string name="springOpe">Spring Opening</string>
+    <string name="springCharac">Spring Characteristics</string>
+    <string name="springSui">Spring Suitable</string>
+    <string name="springNeu">Spring Neutral</string>
+    <string name="springAvo">Spring Avoided</string>
+    <string name="springHandle">Spring Handle</string>
 
 </resources>
