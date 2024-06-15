@@ -94,32 +94,33 @@
         android:id="@+id/boxWinter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="13dp"
+        android:layout_marginEnd="4dp"
         android:background="@drawable/boxwinter"
         android:clickable="true"
         app:layout_constraintBottom_toBottomOf="@+id/boxAutumn"
         app:layout_constraintEnd_toEndOf="@+id/btnGallery"
-        app:layout_constraintTop_toTopOf="@+id/boxAutumn"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="@+id/boxAutumn" />
 
     <ImageView
         android:id="@+id/boxAutumn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginEnd="4dp"
         android:background="@drawable/boxautumn"
         android:clickable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/boxSummer"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/btnGallery"
-        app:layout_constraintTop_toBottomOf="@+id/boxSummer"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/boxSummer" />
 
     <ImageView
         android:id="@+id/boxSummer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
+        android:layout_marginEnd="4dp"
         android:background="@drawable/boxsummer"
         android:clickable="true"
         app:layout_constraintStart_toStartOf="@+id/btnGallery"
@@ -135,7 +136,6 @@
         android:background="@drawable/boxspring"
         android:clickable="true"
         app:layout_constraintEnd_toEndOf="@+id/btnGallery"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/boxSummer"
         app:layout_constraintTop_toBottomOf="@+id/btnGallery" />
 
