@@ -11,9 +11,16 @@ class ResultImageAdapter(private val imageUrlList: List<String>) : RecyclerView.
     inner class ResultViewHolder(private val binding: ItemResultBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(imageUrl: String) {
             Glide.with(itemView.context)
-                .load(imageUrl)
+                .load(transform(imageUrl))
                 .into(binding.imageView)
         }
+    }
+
+    private fun transform(url: String): String {
+        if (url.startsWith("https://storage.cloud.google.com/")) {
+            return url.replace("https://storage.cloud.google.com/", "https://storage.googleapis.com/")
+        }
+        return url
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ResultViewHolder {

@@ -50,7 +50,7 @@ class ResultActivity : AppCompatActivity() {
             val rvResult: RecyclerView = binding.recyclerView
             val gridlayoutManager = GridLayoutManager(this, 2)
             rvResult.layoutManager = gridlayoutManager
-            val imageList = predictionModel.responseImages.shuffled().take(6)
+            val imageList = predictionModel.responseImages.take(6)
             rvResult.adapter = ResultImageAdapter(imageList)
 
             viewModel.getSession().observe(this) { session ->
@@ -83,6 +83,7 @@ class ResultActivity : AppCompatActivity() {
 
     private fun setUpDescription() {
         binding.textSeason.text = skinTone
+        Log.d("Result", skinTone)
         binding.textFace.text = faceShape
 
         val photoResId = when (skinTone) {
