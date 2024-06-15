@@ -1,5 +1,6 @@
 package com.example.fitme.home
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
@@ -10,6 +11,7 @@ import com.example.fitme.R
 import com.example.fitme.adapter.ColorPaletteAdapter
 import com.example.fitme.databinding.ActivityDetailBinding
 import com.example.fitme.databinding.ActivityNavbarBinding
+import com.example.fitme.login.LoginActivity
 
 class DetailActivity : AppCompatActivity() {
 
@@ -22,6 +24,11 @@ class DetailActivity : AppCompatActivity() {
 
         val season = intent.getStringExtra("SEASON")
         val imageView = findViewById<ImageView>(R.id.imgSeason)
+
+        binding.btnBack.setOnClickListener {
+            startActivity(Intent(this@DetailActivity, MainActivity::class.java))
+            finish()
+        }
 
         setUpRecommendedColors(season?:"")
         setUpAvoidedColors(season?:"")

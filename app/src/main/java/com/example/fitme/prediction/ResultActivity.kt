@@ -135,9 +135,7 @@ class ResultActivity : AppCompatActivity() {
         binding.btnBack.setOnClickListener {
             val fromHistory = intent.getBooleanExtra("FROM_HISTORY", false)
             if (fromHistory) {
-                val intent = Intent(this, HistoryFragment::class.java)
-                intent.removeExtra(ResultActivity.EXTRA_PREDICTION_MODEL)
-                startActivity(intent)
+                finish()
             } else {
                 val intent = Intent(this, MainActivity::class.java)
                 intent.removeExtra(ResultActivity.EXTRA_PREDICTION_MODEL)
