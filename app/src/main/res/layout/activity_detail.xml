@@ -69,20 +69,40 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <TextView
-            android:id="@+id/tvDesc"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardAbout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
+            android:background="@color/white"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="4dp"
+            android:layout_marginTop="20dp"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
-            android:textSize="18sp"
-            android:justificationMode="inter_word"
-            android:textColor="@color/black"
-            android:text="@string/desc"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/backgroundLayout" />
+            app:layout_constraintTop_toBottomOf="@+id/backgroundLayout">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:background="@color/white"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvDesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:textSize="16sp"
+                android:justificationMode="inter_word"
+                android:textColor="@color/black"
+                android:text="@string/desc" />
+        </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
         <TextView
             android:id="@+id/tvCharac"
@@ -97,7 +117,7 @@
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvDesc" />
+            app:layout_constraintTop_toBottomOf="@id/cardAbout" />
 
         <TextView
             android:id="@+id/tvCharacDesc"
