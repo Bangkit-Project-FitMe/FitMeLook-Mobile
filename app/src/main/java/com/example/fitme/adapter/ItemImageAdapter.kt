@@ -25,11 +25,19 @@ class ItemImageAdapter(private val imageUrls: List<String>) : RecyclerView.Adapt
         Log.d("ItemImageAdapter", "Loading image from URL: $imageUrl")
 
         Glide.with(holder.imageView.context)
-            .load(imageUrl)
-            .placeholder(R.drawable.ic_launcher_background)
+            .load(transform(imageUrl))
+            .placeholder(R.color.white)
             .error(R.drawable.ic_launcher_foreground)
             .into(holder.imageView)
     }
+
+    private fun transform(url: String): String {
+        if (url.startsWith("https://storage.cloud.google.com/")) {
+            return url.replace("https://storage.cloud.google.com/", "https://storage.googleapis.com/")
+        }
+        return url
+    }
+
 
     override fun getItemCount(): Int = imageUrls.size
 }

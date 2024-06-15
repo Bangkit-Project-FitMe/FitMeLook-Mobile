@@ -157,20 +157,29 @@ class HomeFragment : Fragment() {
         val options = UCrop.Options().apply {
             setToolbarColor(ContextCompat.getColor(requireContext(), R.color.orange))
             setToolbarWidgetColor(ContextCompat.getColor(requireContext(), R.color.white))
+            setActiveControlsWidgetColor(ContextCompat.getColor(requireContext(), R.color.orange))
+            setStatusBarColor(ContextCompat.getColor(requireContext(), R.color.orange))
+            setRootViewBackgroundColor(ContextCompat.getColor(requireContext(), R.color.white))
         }
         val uCropIntent = UCrop.of(uri, destinationUri)
             .withAspectRatio(1f, 1f)
             .withOptions(options)
             .getIntent(requireContext())
 
-        AlertDialog.Builder(requireContext())
+        val dialog = AlertDialog.Builder(requireContext(), R.style.AlertDialogStyle_FitMe)
             .setMessage("Please crop focus only on the face. Make sure your hair is at least visible!")
             .setPositiveButton("OK") { dialog, _ ->
                 dialog.dismiss()
                 uCropLauncher.launch(uCropIntent)
             }
             .setCancelable(false)
-            .show()
+            .create()
+
+        dialog.setOnShowListener {
+            dialog.getButton(AlertDialog.BUTTON_POSITIVE)?.setTextColor(ContextCompat.getColor(requireContext(), R.color.orange))
+        }
+
+        dialog.show()
     }
 
     override fun onDestroyView() {

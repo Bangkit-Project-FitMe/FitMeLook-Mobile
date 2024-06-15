@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     android:padding="16dp">
 
     <TextView
@@ -58,6 +59,8 @@
         android:layout_marginBottom="50dp"
         android:text="@string/analyze"
         android:visibility="visible"
+        android:backgroundTint="@color/orange"
+        android:textColor="@color/white"
         app:layout_constraintTop_toBottomOf="@+id/frame"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -116,6 +119,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="gone"
+        style="@style/ProgressBarOrange"
         app:layout_constraintTop_toBottomOf="@+id/textAnalyzing"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

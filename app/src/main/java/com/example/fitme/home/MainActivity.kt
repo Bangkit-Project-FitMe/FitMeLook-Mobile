@@ -18,6 +18,7 @@ import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import androidx.core.content.ContextCompat
 import androidx.core.view.GravityCompat
 import com.example.fitme.R
 import com.example.fitme.ViewModelFactory
@@ -112,7 +113,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showLogoutConfirmationDialog() {
-        val builder = AlertDialog.Builder(this)
+        val builder = AlertDialog.Builder(this, R.style.AlertDialogStyle_FitMe)
         builder.setTitle("Logout")
         builder.setMessage("Are you sure you want to logout?")
         builder.setPositiveButton("Logout") { _: DialogInterface, _: Int ->
@@ -120,6 +121,10 @@ class MainActivity : AppCompatActivity() {
         }
         builder.setNegativeButton("Cancel") { _: DialogInterface, _: Int -> }
         val dialog = builder.create()
+        dialog.setOnShowListener {
+            dialog.getButton(AlertDialog.BUTTON_POSITIVE)?.setTextColor(ContextCompat.getColor(this, R.color.orange))
+            dialog.getButton(AlertDialog.BUTTON_NEGATIVE)?.setTextColor(ContextCompat.getColor(this, R.color.black))
+        }
         dialog.show()
     }
 
