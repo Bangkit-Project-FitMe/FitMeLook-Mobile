@@ -24,14 +24,14 @@
         android:theme="@style/Base.Theme.FitMe"
         tools:targetApi="31">
         <activity
-            android:name=".home.DetailActivity"
-            android:exported="false" />
-        <activity
-            android:name=".home.about.AboutActivity"
-            android:theme="@style/Base.Theme.FitMe"
-            android:exported="false" />
+            android:name="com.yalantis.ucrop.UCropActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
         <activity
             android:name=".prediction.ResultActivity"
+            android:exported="false" />
+        <activity
+            android:name=".home.DetailActivity"
             android:exported="false" />
         <activity
             android:name=".prediction.ConfirmationActivity"

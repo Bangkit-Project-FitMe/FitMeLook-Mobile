@@ -64,6 +64,7 @@ dependencies {
     implementation(platform("com.google.firebase:firebase-bom:33.1.0"))
     implementation("com.firebaseui:firebase-ui-auth:8.0.2")
 
+    implementation("com.github.yalantis:ucrop:2.2.8")
     implementation("androidx.navigation:navigation-fragment-ktx:2.7.7")
     implementation("androidx.navigation:navigation-ui-ktx:2.7.7")
 
