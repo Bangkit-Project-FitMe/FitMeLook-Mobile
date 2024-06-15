@@ -22,7 +22,7 @@ interface ApiService{
     @FormUrlEncoded
     @POST("register")
     suspend fun register(
-        @Field("userID") userID: String,
+        @Field("user_id") userID: String,
         @Field("email") email: String,
         @Field("full_name") fullName: String,
     ): SignUpResponse
