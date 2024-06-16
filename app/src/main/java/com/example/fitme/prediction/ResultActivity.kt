@@ -169,15 +169,6 @@ class ResultActivity : AppCompatActivity() {
 
         binding.textDescription.text = about
 
-        val descResInfo = when (skinTone) {
-            "Summer" -> R.string.summerInfo
-            "Autumn" -> R.string.autumnInfo
-            "Winter" -> R.string.winterInfo
-            else -> R.string.springInfo
-        }
-        val descInfo = getString(descResInfo)
-        binding.textDetail.text = descInfo
-
         val colorResId = when (skinTone) {
             "Summer" -> R.color.summer
             "Autumn" -> R.color.autumn

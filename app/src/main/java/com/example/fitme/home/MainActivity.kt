@@ -80,6 +80,10 @@ class MainActivity : AppCompatActivity() {
 
         viewModel.getSession().observe(this) { user ->
             tvTitle.text = user?.fullName ?: ""
+            if (user == null) {
+                startActivity(Intent(this@MainActivity, LoginActivity::class.java))
+                finish()
+            }
         }
 
         navView.setNavigationItemSelectedListener { menuItem ->

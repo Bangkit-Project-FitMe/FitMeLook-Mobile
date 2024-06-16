@@ -43,10 +43,10 @@
     <string name="recommended">Recommended Colors</string>
     <string name="avoided">Avoided Colors</string>
     <string name="forYou">For You</string>
-    <string name="shape">Shape</string>
+    <string name="shape">Face Shape</string>
     <string name="face">Oval</string>
     <string name="season">Summer</string>
-    <string name="detail">Cool &amp; Light</string>
+    <string name="detail">Seasonal Type</string>
 
     <!--    Home-->
     <string name="user_test">loading...</string>
@@ -243,11 +243,11 @@
 
     <!-- Summer -->
     <string name="summerOpe">People with Summer skin and eye types always look more radiant when wearing colors that harmonize with their natural tones. The right colors will revive the cheeks, making the appearance look younger and more charming.</string>
-    <string name="summerCharac">"• Eyes: Light blue, blue-gray, gray-green, charcoal blue, even light hazel with soft gray undertones - and they might have slightly darker lines around the iris.\n• Hair: Typically has white-blonde, fair, or light brown colors.\n• Skin: Tends to be light to ivory, or possibly medium beige, but always with cool/blue undertones that give a pinkish hue to the face. Your skin is likely to blush easily. Therefore, it's advisable to avoid pure beige foundation and instead choose ones with a light pink undertone.\n"</string>
-    <string name="summerSui">"• Warm, deep, and muted (soft).\n• With golden (yellow) undertones.\n• Ivory and cream are better than pure white, which is too stark a contrast for your warm skin.\n• Natural shades like old gold, orange, rich red, green, mountain blue, and deep sea teal.\n• The colors that best match the Autumn Palette include cream, light brown, brown, reddish brown, olive, peach, gold, dark green, light blue, blue-green, ocean blue, orange, brownish gray, light purple, dark purple, and yellowish brown.\n"</string>
-    <string name="summerNeu">"• Camel and coffee brown to dark brown.\n• Ginger and terracotta to deep rust.\n• Warm navy blue, warm gray, or olive green.\n"</string>
-    <string name="summerAvo">"• Avoid colors with harsh blue undertones, as they are too stark for your skin.\n• Avoid overly pale shades that do not match the depth of your skin tone.\n• Avoid overly bright and vivid colors that may clash with the softness of your skin tone.\n"</string>
-    <string name="summerHandle">Raspberry, royal blue, and blue-based reds are not the best colors for you. If you choose to wear them, pair them with soft, warm colors around your face to mitigate their effect.\n</string>
+    <string name="summerCharac">"• Eyes: Light blue, blue-gray, gray-green, charcoal blue, even light hazel with soft gray undertones - and they might have slightly darker lines around the iris.\n• Hair: Typically has white-blonde, fair, or light brown colors.\n• Skin: Tends to be light to ivory, or possibly medium beige, but always with cool/blue undertones that give a pinkish hue to the face. Your skin is likely to blush easily. Therefore, it's advisable to avoid pure beige foundation and instead choose ones with a light pink undertone."</string>
+    <string name="summerSui">"• Cool colors with blue undertones.\n• Every shade of blue, from pastel to navy, is perfect for you.\n• Soft pink, refreshing berry, and vibrant fuchsia.\n• Serene sea green and clean, bright pink.\n• Soft white is more suitable than pure white.\n• So the colors that best suit the Summer Palette include light pink to deep pink, dark red, light to dark blue, sky blue, navy, teal, light to dark purple, magenta, charcoal, dark gray, light green, mint green, and grayish brown."</string>
+    <string name="summerNeu">"• Rose beige, cocoa brown to rose brown.\n• Light blue-gray, silver gray, to navy gray."</string>
+    <string name="summerAvo">"• Warm-toned yellows such as yellow, orange, tan brown, mustard, and ginger brown.\n• Bright sharp greens, warm pinks like salmon, or coral.\n• Dark, dull colors and earthy tones."</string>
+    <string name="summerHandle">If you must wear a less suitable color, combine it with your best colors near your face to soften the effect. Wear a scarf near your face; wear a collar over your jacket or add silver diamond or white pearl earrings. Black is too harsh for you and will wash out your face color; choose a lower neckline if possible and introduce pearl or silver jewelry. Midnight blue is a great substitute.</string>
 
     <!-- Winter -->
     <string name="winterOpe">Winter always has a bluish undertone to the skin and a strong clarity to the coloring, characterized by high contrast.</string>
