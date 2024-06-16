@@ -104,7 +104,7 @@ class LoginActivity : AppCompatActivity() {
         val password = binding.passwordInput.text.toString().trim()
 
         if (email.isEmpty() || password.isEmpty()) {
-            Toast.makeText(this, "Email and Password cannot be empty", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Email and password must be filled", Toast.LENGTH_SHORT).show()
             return
         }
 
@@ -113,7 +113,7 @@ class LoginActivity : AppCompatActivity() {
                 if (task.isSuccessful) {
                     handleLogin()
                 } else {
-                    Toast.makeText(this, "${task.exception?.message}", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Invalid email or password", Toast.LENGTH_SHORT).show()
                 }
             }
     }
@@ -125,17 +125,24 @@ class LoginActivity : AppCompatActivity() {
             when (result) {
                 is ResultState.Success -> {
                     binding.progressBar.visibility = View.INVISIBLE
-                    val userModel =  UserModel(
-                        result.data.data.userID,
-                        result.data.data.email,
-                        result.data.data.fullName,
-                        true
-                    )
-                    viewModel.saveSession(userModel)
-                    intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
-                    ViewModelFactory.clearInstance()
-                    Toast.makeText(this, "Login successful", Toast.LENGTH_SHORT).show()
-                    updateUI()
+                    if (result.data.status == "success") {
+                        val userModel =  UserModel(
+                            result.data.data.userID,
+                            result.data.data.email,
+                            result.data.data.fullName,
+                            true
+                        )
+                        viewModel.saveSession(userModel)
+                        ViewModelFactory.clearInstance()
+                        Toast.makeText(this, "Login Successful!", Toast.LENGTH_SHORT).show()
+                        updateUI()
+                    } else {
+                        Toast.makeText(this, result.data.message, Toast.LENGTH_SHORT).show()
+                        auth.signOut()
+                        val googleSignInClient = GoogleSignIn.getClient(this, GoogleSignInOptions.Builder(
+                            GoogleSignInOptions.DEFAULT_SIGN_IN).build())
+                        googleSignInClient.signOut()
+                    }
                 }
 
                 is ResultState.Loading -> {
@@ -192,6 +199,7 @@ class LoginActivity : AppCompatActivity() {
     private fun updateUI() {
         if (FirebaseAuth.getInstance().currentUser != null) {
             val intent = Intent(this, MainActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
             startActivity(intent)
             finish()
         }

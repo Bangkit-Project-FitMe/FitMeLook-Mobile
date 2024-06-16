@@ -27,6 +27,7 @@ class DetailActivity : AppCompatActivity() {
 
         binding.btnBack.setOnClickListener {
             startActivity(Intent(this@DetailActivity, MainActivity::class.java))
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
             finish()
         }
 

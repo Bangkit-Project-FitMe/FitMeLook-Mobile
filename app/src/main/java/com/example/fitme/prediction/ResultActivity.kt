@@ -108,6 +108,7 @@ class ResultActivity : AppCompatActivity() {
 
         Glide.with(this)
             .load(model.imageUrl)
+            .placeholder(R.color.white)
             .transform(CircleCrop())
             .into(binding.imageView)
 

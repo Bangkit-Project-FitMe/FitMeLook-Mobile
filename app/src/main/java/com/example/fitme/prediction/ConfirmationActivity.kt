@@ -63,8 +63,6 @@ class ConfirmationActivity : AppCompatActivity() {
                     viewModel.predict(userID, uri!!).observe(this@ConfirmationActivity) { predict ->
                         when (predict) {
                             is ResultState.Success -> {
-                                Toast.makeText(this@ConfirmationActivity, predict.data.message, Toast.LENGTH_SHORT)
-                                    .show()
                                 if (predict.data.data.responseImages.isEmpty()) {
                                     val intent = Intent(this@ConfirmationActivity, MainActivity::class.java)
                                     startActivity(intent)
@@ -87,6 +85,7 @@ class ConfirmationActivity : AppCompatActivity() {
                                     startActivity(intent)
                                     finish()
                                 }
+                                Toast.makeText(this@ConfirmationActivity, predict.data.message, Toast.LENGTH_SHORT).show()
                             }
 
                             is ResultState.Loading -> {
