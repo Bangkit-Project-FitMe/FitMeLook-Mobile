@@ -63,11 +63,7 @@ class ConfirmationActivity : AppCompatActivity() {
                     viewModel.predict(userID, uri!!).observe(this@ConfirmationActivity) { predict ->
                         when (predict) {
                             is ResultState.Success -> {
-                                if (predict.data.data.responseImages.isEmpty()) {
-                                    val intent = Intent(this@ConfirmationActivity, MainActivity::class.java)
-                                    startActivity(intent)
-                                    finish()
-                                } else {
+                                if (predict.data.status == "success") {
                                     val predictionModel = PredictionModel(
                                         predict.data.data.faceShape ?: "",
                                         predict.data.data.seasonalType ?: "",
@@ -82,6 +78,10 @@ class ConfirmationActivity : AppCompatActivity() {
                                         ResultActivity.EXTRA_PREDICTION_MODEL,
                                         predictionModel
                                     )
+                                    startActivity(intent)
+                                    finish()
+                                } else {
+                                    val intent = Intent(this@ConfirmationActivity, MainActivity::class.java)
                                     startActivity(intent)
                                     finish()
                                 }
