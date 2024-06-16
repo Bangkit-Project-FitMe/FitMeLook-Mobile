@@ -1,17 +1,13 @@
 package com.example.fitme.profile
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.activity.viewModels
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModelProvider
 import com.example.fitme.ViewModelFactory
 import com.example.fitme.databinding.FragmentProfileBinding
-import com.example.fitme.home.MainViewModel
 
 class ProfileFragment : Fragment() {
 

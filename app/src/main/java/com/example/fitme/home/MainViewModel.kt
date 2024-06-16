@@ -15,4 +15,8 @@ class MainViewModel(private val repository: FitMeRepository) : ViewModel() {
             repository.logout()
         }
     }
+
+    fun getSession(): LiveData<UserModel> {
+        return repository.getSession().asLiveData()
+    }
 }

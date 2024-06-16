@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.widget.Button
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -74,6 +75,13 @@ class MainActivity : AppCompatActivity() {
 
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+        val headerView = navView.getHeaderView(0)
+        val tvTitle = headerView.findViewById<TextView>(R.id.tvTitle)
+
+        viewModel.getSession().observe(this) { user ->
+            tvTitle.text = user?.fullName ?: ""
+        }
 
         navView.setNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
