@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">FitMeLook</string>
+    <string name="back_button_description">Back Button</string>
+    <string name="recommended_rv">Recommended RV</string>
+    <string name="avoided_rv">Avoided RV</string>
+    <string name="result_rv">Result RV</string>
 
     <!--    Login-->
     <string name="login1">Log into</string>

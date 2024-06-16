@@ -11,7 +11,6 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.RecyclerView.LayoutManager
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CircleCrop
 import com.example.fitme.R
@@ -23,8 +22,6 @@ import com.example.fitme.api.ApiService
 import com.example.fitme.api.response.DetailHistoryData
 import com.example.fitme.databinding.ActivityResultBinding
 import com.example.fitme.home.MainActivity
-import com.example.fitme.home.history.HistoryFragment
-import com.example.fitme.login.LoginViewModel
 import com.example.fitme.prediction.model.PredictionModel
 import kotlinx.coroutines.launch
 
@@ -139,7 +136,7 @@ class ResultActivity : AppCompatActivity() {
             } else {
                 val intent = Intent(this, MainActivity::class.java)
                 intent.removeExtra(ResultActivity.EXTRA_PREDICTION_MODEL)
-                startActivity(intent)
+                finish()
             }
             finish()
         }

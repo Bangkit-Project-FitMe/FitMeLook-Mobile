@@ -3,15 +3,12 @@ package com.example.fitme.home
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageView
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.fitme.R
 import com.example.fitme.adapter.ColorPaletteAdapter
 import com.example.fitme.databinding.ActivityDetailBinding
-import com.example.fitme.databinding.ActivityNavbarBinding
-import com.example.fitme.login.LoginActivity
 
 class DetailActivity : AppCompatActivity() {
 
@@ -26,8 +23,6 @@ class DetailActivity : AppCompatActivity() {
         val imageView = findViewById<ImageView>(R.id.imgSeason)
 
         binding.btnBack.setOnClickListener {
-            startActivity(Intent(this@DetailActivity, MainActivity::class.java))
-            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
             finish()
         }
 

@@ -2,8 +2,6 @@ package com.example.fitme.api
 
 
 import com.example.fitme.api.response.DetailHistoryResponse
-import com.example.fitme.api.response.ListHistoryData
-import com.example.fitme.api.response.ListHistoryResponse
 import okhttp3.ResponseBody
 import retrofit2.Response
 import com.example.fitme.api.response.PredictionResponse

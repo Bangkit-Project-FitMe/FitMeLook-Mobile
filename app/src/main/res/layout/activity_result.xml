@@ -21,7 +21,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="?attr/selectableItemBackgroundBorderless"
-            android:src="@drawable/baseline_arrow_back_ios_24" />
+            android:src="@drawable/baseline_arrow_back_ios_24"
+            android:contentDescription="@string/back_button_description"
+            android:padding="10dp"/>
 
         <TextView
             android:id="@+id/toolbarTitle"
@@ -29,7 +31,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="start"
             android:text="@string/result"
-            android:layout_marginStart="35dp"
+            android:layout_marginStart="18dp"
             android:textColor="@android:color/black"
             android:textSize="20sp" />
     </androidx.appcompat.widget.Toolbar>
@@ -257,6 +259,7 @@
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:contentDescription="@string/recommended_rv"
                 android:layout_marginTop="8dp"
                 tools:listitem="@layout/item_palette" />
 
@@ -281,6 +284,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:contentDescription="@string/avoided_rv"
                 tools:listitem="@layout/item_palette" />
 
         <TextView
@@ -301,6 +305,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
+            android:contentDescription="@string/result_rv"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:spanCount="2"
             android:layout_marginTop="8dp"

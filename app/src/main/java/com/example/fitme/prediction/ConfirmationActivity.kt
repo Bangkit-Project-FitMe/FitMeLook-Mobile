@@ -9,7 +9,6 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.bumptech.glide.Glide
-import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.example.fitme.ViewModelFactory
 import com.example.fitme.api.ResultState
 import com.example.fitme.databinding.ActivityConfirmationBinding
@@ -17,7 +16,6 @@ import com.example.fitme.home.MainActivity
 import com.example.fitme.prediction.model.PredictionModel
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.launch
-import androidx.lifecycle.viewModelScope
 import java.io.File
 
 class ConfirmationActivity : AppCompatActivity() {

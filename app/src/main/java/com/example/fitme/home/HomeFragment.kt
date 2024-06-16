@@ -11,7 +11,6 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
@@ -130,7 +129,6 @@ class HomeFragment : Fragment() {
             putExtra(ConfirmationActivity.EXTRA_IMAGE_FILE, image)
         }
         startActivity(intent)
-        requireActivity().finish()
     }
 
     private fun navigateToDetail(season: String) {

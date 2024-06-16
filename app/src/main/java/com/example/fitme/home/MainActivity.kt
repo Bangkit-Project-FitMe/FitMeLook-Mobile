@@ -25,7 +25,6 @@ import com.example.fitme.R
 import com.example.fitme.ViewModelFactory
 import com.example.fitme.databinding.ActivityNavbarBinding
 import com.example.fitme.login.LoginActivity
-import com.example.fitme.signup.SignUpViewModel
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.FirebaseAuth
