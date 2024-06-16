@@ -79,7 +79,7 @@ class SignUpActivity : AppCompatActivity() {
         val password = binding.passwordInput.text.toString().trim()
 
         if (name.isEmpty() || email.isEmpty() || password.isEmpty()) {
-            Toast.makeText(this, "Fullname, Email, and Password cannot be empty!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Fullname, email, and password must be filled", Toast.LENGTH_SHORT).show()
             return
         }
 
@@ -102,9 +102,14 @@ class SignUpActivity : AppCompatActivity() {
             when (result) {
                 is ResultState.Success -> {
                     binding.progressBar.visibility = View.INVISIBLE
-                    Toast.makeText(this, "Sign up successful", Toast.LENGTH_SHORT).show()
-                    intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
-                    updateUI()
+                    if (result.data.status.equals("success")) {
+                        Toast.makeText(this,"Sign Up Successful!", Toast.LENGTH_SHORT).show()
+                        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+                        updateUI()
+                    } else {
+                        Toast.makeText(this, result.data.message, Toast.LENGTH_SHORT).show()
+                    }
+                    auth.signOut()
                 }
 
                 is ResultState.Loading -> {
@@ -128,9 +133,16 @@ class SignUpActivity : AppCompatActivity() {
             when (result) {
                 is ResultState.Success -> {
                     binding.progressBar.visibility = View.INVISIBLE
-                    Toast.makeText(this, "Sign up successful", Toast.LENGTH_SHORT).show()
-                    intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
-                    updateUI()
+                    if (result.data.message == "success") {
+                        Toast.makeText(this, "Sign Up Successful!", Toast.LENGTH_SHORT).show()
+                        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+                        updateUI()
+                    } else {
+                        Toast.makeText(this, result.data.message, Toast.LENGTH_SHORT).show()
+                    }
+                    val googleSignInClient = GoogleSignIn.getClient(this, GoogleSignInOptions.Builder(
+                        GoogleSignInOptions.DEFAULT_SIGN_IN).build())
+                    googleSignInClient.signOut()
                 }
 
                 is ResultState.Loading -> {
@@ -185,10 +197,8 @@ class SignUpActivity : AppCompatActivity() {
     }
 
     private fun updateUI() {
-        if (FirebaseAuth.getInstance().currentUser != null) {
-            startActivity(Intent(this@SignUpActivity, LoginActivity::class.java))
-            finish()
-        }
+        startActivity(Intent(this@SignUpActivity, LoginActivity::class.java))
+        finish()
     }
 
     companion object {
