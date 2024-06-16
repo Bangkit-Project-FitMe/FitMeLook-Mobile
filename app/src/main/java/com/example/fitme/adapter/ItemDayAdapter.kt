@@ -55,7 +55,7 @@ class ItemDayAdapter(private val dayList: List<ListHistoryData>, private val ite
         val isToday = currentYear == itemYear && currentMonth == itemMonth && currentDay == itemDay
         val isYesterday = currentYear == itemYear && currentMonth == itemMonth && currentDay - itemDay == 1
 
-        val outputFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+        val outputFormat = SimpleDateFormat("dd-MM-yyyy", Locale.getDefault())
         val formattedDate = when {
             isToday -> "Today"
             isYesterday -> "Yesterday"
