@@ -4,6 +4,8 @@
         <port>3000</port>
         <domain includeSubdomains="true">192.168.0.109</domain>
         <domain includeSubdomains="true">35.219.100.114</domain>
+        <domain includeSubdomains="true">34.49.248.251</domain>
         <domain includeSubdomains="true">storage.cloud.google.com</domain>
+        <domain includeSubdomains="true">storage.googleapis.com/</domain>
     </domain-config>
 </network-security-config>
