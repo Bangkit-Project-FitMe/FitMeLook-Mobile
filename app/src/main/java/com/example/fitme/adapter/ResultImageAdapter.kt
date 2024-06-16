@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.fitme.databinding.ItemResultBinding
 import com.bumptech.glide.Glide
+import com.example.fitme.R
 
 class ResultImageAdapter(private val imageUrlList: List<String>) : RecyclerView.Adapter<ResultImageAdapter.ResultViewHolder>() {
 
@@ -12,6 +13,7 @@ class ResultImageAdapter(private val imageUrlList: List<String>) : RecyclerView.
         fun bind(imageUrl: String) {
             Glide.with(itemView.context)
                 .load(transform(imageUrl))
+                .placeholder(R.color.white)
                 .into(binding.imageView)
         }
     }

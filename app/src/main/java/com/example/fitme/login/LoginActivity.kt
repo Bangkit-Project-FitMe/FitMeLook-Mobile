@@ -133,7 +133,6 @@ class LoginActivity : AppCompatActivity() {
                             true
                         )
                         viewModel.saveSession(userModel)
-                        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
                         ViewModelFactory.clearInstance()
                         Toast.makeText(this, "Login Successful!", Toast.LENGTH_SHORT).show()
                         updateUI()
@@ -200,6 +199,7 @@ class LoginActivity : AppCompatActivity() {
     private fun updateUI() {
         if (FirebaseAuth.getInstance().currentUser != null) {
             val intent = Intent(this, MainActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
             startActivity(intent)
             finish()
         }
