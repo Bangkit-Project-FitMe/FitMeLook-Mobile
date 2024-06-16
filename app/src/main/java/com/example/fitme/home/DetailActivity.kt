@@ -35,7 +35,7 @@ class DetailActivity : AppCompatActivity() {
                 binding.tvDesc.text = getString(R.string.summerOpe)
                 binding.tvCharacDesc.text = getString(R.string.summerCharac)
                 binding.tvSuitDesc.text = getString(R.string.summerSui)
-                binding.tvSuitNetDesc.text = getString(R.string.summerNeu)
+                binding.tvNeuDesc.text = getString(R.string.summerNeu)
                 binding.tvAvoidDesc.text = getString(R.string.summerAvo)
                 binding.tvHandleDesc.text = getString(R.string.summerHandle)
             }
@@ -44,7 +44,7 @@ class DetailActivity : AppCompatActivity() {
                 binding.tvDesc.text = getString(R.string.springOpe)
                 binding.tvCharacDesc.text = getString(R.string.springCharac)
                 binding.tvSuitDesc.text = getString(R.string.springSui)
-                binding.tvSuitNetDesc.text = getString(R.string.springNeu)
+                binding.tvNeuDesc.text = getString(R.string.springNeu)
                 binding.tvAvoidDesc.text = getString(R.string.springAvo)
                 binding.tvHandleDesc.text = getString(R.string.springHandle)
             }
@@ -53,7 +53,7 @@ class DetailActivity : AppCompatActivity() {
                 binding.tvDesc.text = getString(R.string.autumnOpe)
                 binding.tvCharacDesc.text = getString(R.string.autumnCharac)
                 binding.tvSuitDesc.text = getString(R.string.autumnSui)
-                binding.tvSuitNetDesc.text = getString(R.string.autumnNeu)
+                binding.tvNeuDesc.text = getString(R.string.autumnNeu)
                 binding.tvAvoidDesc.text = getString(R.string.autumnAvo)
                 binding.tvHandleDesc.text = getString(R.string.autumnHandle)
             }
@@ -62,7 +62,7 @@ class DetailActivity : AppCompatActivity() {
                 binding.tvDesc.text = getString(R.string.winterOpe)
                 binding.tvCharacDesc.text = getString(R.string.winterCharac)
                 binding.tvSuitDesc.text = getString(R.string.winterSui)
-                binding.tvSuitNetDesc.text = getString(R.string.winterNeu)
+                binding.tvNeuDesc.text = getString(R.string.winterNeu)
                 binding.tvAvoidDesc.text = getString(R.string.winterAvo)
                 binding.tvHandleDesc.text = getString(R.string.winterHandle)
             }
