@@ -6,3 +6,14 @@ FitMeLook is an Android mobile application that aims to assist women in finding 
 ## Developers
 - A010D4KX3478 – Emily Rumia Naomi
 - A004D4KX4566 – Syarifah Talitha Erfany
+
+## How to Run
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/Bangkit-Project-FitMe/FitMeLook-Mobile.git
+   ```
+2. Open the project in Android Studio.
+3. Build and run the app.
+
+## How to Download
+[Click this link]()
