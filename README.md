@@ -16,5 +16,5 @@ FitMeLook is an Android mobile application that aims to assist women in finding 
 3. Build and run the app.
 
 ## Download
-[Click this link](https://apkfab.com/fitmelook/com.example.fitme/apk?h=28967391ae4e2f05ab59a5595155db8c153b0ca41f5348280ccb4f0fd47efb7e)
-[Alternative link](https://drive.google.com/file/d/1HENBPl4TiMqTP4EvcCnywKIT0oyHwL1E/view?usp=sharing)
+- [Click this link](https://apkfab.com/fitmelook/com.example.fitme/apk?h=28967391ae4e2f05ab59a5595155db8c153b0ca41f5348280ccb4f0fd47efb7e)
+- [Alternative link](https://drive.google.com/file/d/1HENBPl4TiMqTP4EvcCnywKIT0oyHwL1E/view?usp=sharing)
